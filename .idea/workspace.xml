@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33d4d47c-993a-40d3-ac4d-4a68261b8abc" name="Default Changelist" comment="Test">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SnakesAndLadders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnakesAndLadders.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

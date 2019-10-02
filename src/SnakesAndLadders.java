@@ -1,5 +1,5 @@
 public class SnakesAndLadders {
     public static void main(String[] args) {
-        System.out.println("TEEEEEEEST");
+        System.out.println("TEEEEEEEST_TEST");
     }
 }
