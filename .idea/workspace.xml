@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bc51419-85d1-43ad-8614-6bb945329e21" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Snakes_and_Ladders/src/Die.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Snakes_and_Ladders/src/LadderSnake.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Snakes_and_Ladders/src/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/src/FirstSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snakes_and_Ladders/src/FirstSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/src/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snakes_and_Ladders/src/Square.java" afterDir="false" />
+    <list default="true" id="2bc51419-85d1-43ad-8614-6bb945329e21" name="Default Changelist" comment="Test of new commit in this Test branch">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snakes_and_Ladders/src/main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +48,16 @@
       <option name="presentableId" value="Default" />
       <updated>1570278798872</updated>
       <workItem from="1570278804323" duration="82000" />
+      <workItem from="1570281417179" duration="527000" />
     </task>
+    <task id="LOCAL-00001" summary="Creation of my test branch">
+      <created>1570281613601</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1570281613601</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -66,10 +68,17 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Creation of my test branch" />
+    <MESSAGE value="Test of new commit in this Test branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test of new commit in this Test branch" />
   </component>
 </project>
