@@ -1,4 +1,7 @@
 public class FirstSquare extends Square {
-    private final int occupied = 0;
-
+    protected final int occupied = 0;
+    void ChangOccupiedState (){
+        return;
+        }
 }
+

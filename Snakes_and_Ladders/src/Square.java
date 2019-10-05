@@ -1,11 +1,12 @@
 public class Square {
+//    occupied = 0 --> is free, occupied = 1 --> is occupied
    protected int occupied = 0;
    int isOccupied() {
        if (this.occupied == 0) {
-           return 1;
+           return 0;
        }
        else {
-           return 0;
+           return 1;
        }
    }
    void ChangOccupiedState (){
