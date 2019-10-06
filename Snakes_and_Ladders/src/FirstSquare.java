@@ -3,6 +3,6 @@ public class FirstSquare extends Square {
         super(1);
     }
     protected final int occupied = 0;
-    void ChangOccupiedState (){ return; }
+    void ChangeOccupiedState (){ return; }
 }
 

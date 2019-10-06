@@ -1,6 +1,8 @@
 public class mainClass {
     public static void main(String[] args) {
-//    gameboard game1 = new gameboard(int, [Spieler])
-//    game1.start() and TEST}
+        Gameboard gameboard = new Gameboard();
+        gameboard.init();
+        Game game = new Game();
+        game.game_flow(gameboard);
     }
 }

@@ -1,5 +1,6 @@
 public class Square {
 
+    public int isOccupied;
     protected int square_number;
 
     public Square(int number){
@@ -7,7 +8,7 @@ public class Square {
     }
 //    occupied = 0 --> is free, occupied = 1 --> is occupied
    protected int occupied = 0;
-   int isOccupied() {
+   public int isOccupied() {
        if (this.occupied == 0) {
            return 0;
        }
@@ -15,7 +16,7 @@ public class Square {
            return 1;
        }
    }
-   void ChangOccupiedState (){
+   void ChangeOccupiedState (){
        if (this.occupied == 0) {
            this.occupied = 1;
        }
