@@ -38,9 +38,10 @@ public class Game {
                 }
 //              normal square not occupied, player moves to destination
                 else {
-                    gb.list_of_squares[active_player.square_number-1].ChangeOccupiedState();
                     gb.list_of_squares[possible_square-1].ChangeOccupiedState();
+                    gb.list_of_squares[active_player.square_number-1].ChangeOccupiedState();
                     active_player.change_sq_num(possible_square);
+//                  output state
                 }
                 gb.list_of_players.add(active_player);
         }
