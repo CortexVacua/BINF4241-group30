@@ -22,12 +22,14 @@ public class Game {
                 }
 
 
-
 //              check if snake/ladder and then modify possible_square to destination of snake/ladder
-                if (gb.list_of_squares[possible_square-1].getClass() == Snake.class || gb.list_of_squares[possible_square-1].getClass() == Ladder.class){
-                    possible_square= gb.list_of_squares[possible_square-1].points_to;
-
+                if (gb.list_of_squares[possible_square-1].getClass() == Snake.class){
+                    possible_square= ((Snake)gb.list_of_squares[possible_square-1]).points_to;
                 }
+                if (gb.list_of_squares[possible_square-1].getClass() == Ladder.class){
+                    possible_square = ((Ladder)gb.list_of_squares[possible_square-1]).points_to;
+                }
+
 //              normal square occupied, player sent to first square
                 if (gb.list_of_squares[possible_square-1].isOccupied() == 1) {
                     gb.list_of_squares[active_player.square_number-1].ChangeOccupiedState();
