@@ -1,4 +1,10 @@
 public class Square {
+
+    protected int square_number;
+
+    public Square(int number){
+        this.square_number = number;
+    }
 //    occupied = 0 --> is free, occupied = 1 --> is occupied
    protected int occupied = 0;
    int isOccupied() {
