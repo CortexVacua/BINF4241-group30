@@ -2,6 +2,7 @@ public class Square {
 
     public int isOccupied;
     protected int square_number;
+    protected int points_to;
 
     public Square(int number){
         this.square_number = number;
@@ -16,6 +17,7 @@ public class Square {
            return 1;
        }
    }
+
    void ChangeOccupiedState (){
        if (this.occupied == 0) {
            this.occupied = 1;
