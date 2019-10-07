@@ -3,7 +3,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class Gameboard {
-
+    static Printer printer = new Printer();
     static Scanner input = new Scanner(System.in);
     static Queue<Player> list_of_players = new LinkedList<>();
     static int board_size;
@@ -50,6 +50,7 @@ public class Gameboard {
             Player player = new Player(name, 1);
             list_of_players.add(player);
         }
+        printer.initialize(list_of_players);
     }
 
     public Queue<Player> getPlayers(){

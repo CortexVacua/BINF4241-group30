@@ -1,5 +1,6 @@
 public class Game {
     protected Die die = new Die();
+    public Printer printer = new Printer();
     public void game_flow(Gameboard gb){
 //        Output state
         while (gb.list_of_squares[gb.board_size-1].isOccupied() == 0){
