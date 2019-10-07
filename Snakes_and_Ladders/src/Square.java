@@ -8,6 +8,10 @@ public class Square {
         this.square_number = number;
     }
 
+    public int get_square_number(){
+        return this.square_number;
+    }
+
    public int isOccupied() {
        if (this.occupied == 0) {
            return 0;
