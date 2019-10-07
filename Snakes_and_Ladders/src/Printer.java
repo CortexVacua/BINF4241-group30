@@ -3,16 +3,33 @@ import java.util.Queue;
 public class Printer {
 
 //  prints the initial state
-    public void initialize(){
+    public void initialization(){
         System.out.println("");
         System.out.print("Initial State:"+"\t");
+    }
+
+//  prints the final state
+    public void finalization(){
+        System.out.print("Final state:"+"\t");
+    }
+
+//  prints the winner
+    public void winner(Queue<Player> list_of_players, int board_size){
+        for (int i=1 ; i<=list_of_players.size() ; i++){
+            Player player = list_of_players.remove();
+            if (player.get_player_number() == board_size){
+                System.out.print(player.get_player_name() + " wins!");
+            }
+            list_of_players.add(player);
+        }
     }
 
 //  prints the rolled dice
     public void dice_roll(int die_roll, Queue<Player> list_of_players){
         Player player = list_of_players.remove();
         System.out.print(player.get_player_name() + " rolls " + die_roll + ":\t");
-        // cycles the list of player so the order is right
+        // cycles the player list so the order is right (because players are removed and added into the linked list)
+        // (and the list.addFirst() function doesn't work somehow...)
         for (int i=1 ; i<=list_of_players.size() ; i++){
             list_of_players.add(player);
             player = list_of_players.remove();

@@ -18,6 +18,9 @@ public class Game {
                     gb.list_of_squares[active_player.square_number-1].ChangeOccupiedState();
                     active_player.change_sq_num(gb.board_size);
                     gb.list_of_players.add(active_player);
+                    printer.finalization();
+                    printer.board_state(gb.list_of_players,gb.list_of_squares,gb.board_size);
+                    printer.winner(gb.list_of_players,gb.board_size);
                     break;
 //                  Output state, plus text that active player has won
                 }
