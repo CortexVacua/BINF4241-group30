@@ -1,11 +1,15 @@
+import java.util.*;
+
 public class Game {
     protected Die die = new Die();
     public Printer printer = new Printer();
     public void game_flow(Gameboard gb){
 //        Output state
         while (gb.list_of_squares[gb.board_size-1].isOccupied() == 0){
-                Player active_player= gb.list_of_players.remove();
                 int die_roll=die.roll_die();
+                printer.dice_roll(die_roll,gb.list_of_players);
+                printer.board_state(gb.list_of_players,gb.list_of_squares,gb.board_size);
+                Player active_player= gb.list_of_players.remove();
                 int possible_square = active_player.square_number + die_roll;
 
 //              active_player lands on final square
@@ -13,6 +17,7 @@ public class Game {
                     gb.list_of_squares[gb.board_size-1].ChangeOccupiedState();
                     gb.list_of_squares[active_player.square_number-1].ChangeOccupiedState();
                     active_player.change_sq_num(gb.board_size);
+                    gb.list_of_players.add(active_player);
                     break;
 //                  Output state, plus text that active player has won
                 }

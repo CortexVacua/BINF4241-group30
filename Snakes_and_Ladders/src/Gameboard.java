@@ -50,7 +50,8 @@ public class Gameboard {
             Player player = new Player(name, 1);
             list_of_players.add(player);
         }
-        printer.initialize(list_of_players, list_of_squares, board_size);
+        printer.initialize();
+        printer.board_state(list_of_players, list_of_squares, board_size);
     }
 
     public Queue<Player> getPlayers(){
