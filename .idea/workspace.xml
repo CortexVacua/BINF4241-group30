@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bc51419-85d1-43ad-8614-6bb945329e21" name="Default Changelist" comment="Merging TestMatej into">
+    <list default="true" id="8b4763de-061e-4e6a-81de-0f5ba07e5e1f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/src/Gameboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snakes_and_Ladders/src/Gameboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/src/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snakes_and_Ladders/src/Ladder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/src/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snakes_and_Ladders/src/Snake.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="TestMatej" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,7 +50,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Gameboard">
+  <component name="RunManager" selected="Application.mainClass">
     <configuration name="Gameboard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Gameboard" />
       <module name="BINF4241-group30-Snakes-and-Ladders" />
@@ -71,8 +74,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Gameboard" />
         <item itemvalue="Application.mainClass" />
+        <item itemvalue="Application.Gameboard" />
       </list>
     </recent_temporary>
   </component>
