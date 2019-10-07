@@ -5,12 +5,12 @@ public class Printer {
 //  prints the initial state
     public void initialization(){
         System.out.println("");
-        System.out.print("Initial State:"+"\t");
+        System.out.print("Initial State:"+"\t\t");
     }
 
 //  prints the final state
     public void finalization(){
-        System.out.print("Final state:"+"\t");
+        System.out.print("Final state:"+"\t\t");
     }
 
 //  prints the winner
@@ -27,7 +27,7 @@ public class Printer {
 //  prints the rolled dice
     public void dice_roll(int die_roll, Queue<Player> list_of_players){
         Player player = list_of_players.remove();
-        System.out.print(player.get_player_name() + " rolls " + die_roll + ":\t");
+        System.out.print(player.get_player_name() + " rolls " + die_roll + ":\t\t");
         // cycles the player list so the order is right (because players are removed and added into the linked list)
         // (and the list.addFirst() function doesn't work somehow...)
         for (int i=1 ; i<=list_of_players.size() ; i++){
