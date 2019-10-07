@@ -26,7 +26,7 @@ public class Gameboard {
         // makes snakes at every sixth square. begins at the fifth square.
         // if there is a ladder at the counted square, the next suqare will be a snake.
         for (int i = 5; i < board_size - 2; i+=6 ) {
-            if (list_of_squares[i - 1] == null) {
+            if (list_of_squares[i - 1] == null && list_of_squares[i-5] == null) {
                 Snake snake = new Snake(i);
                 list_of_squares[i - 1] = snake;
             } else {
