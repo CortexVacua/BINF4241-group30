@@ -1,3 +1,4 @@
+//implements the die for the die roll
 import java.util.Random;
 
 public class Die  {

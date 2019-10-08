@@ -1,3 +1,4 @@
+//parent class for ladders and snakes
 public class LadderSnake extends Square {
 //    snake or ladder leads to points_to
    protected int points_to;

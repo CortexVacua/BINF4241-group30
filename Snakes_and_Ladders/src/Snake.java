@@ -1,3 +1,4 @@
+//implements snakes
 public class Snake extends LadderSnake{
     // always puts the player 4 squares backwards
     public Snake(int start_square) {

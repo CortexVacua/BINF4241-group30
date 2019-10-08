@@ -1,3 +1,4 @@
+//intializes gameboard and players
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -7,6 +8,7 @@ public class Gameboard {
     static Queue<Player> list_of_players = new LinkedList<>();
     static int board_size;
     static Square[] list_of_squares;
+
     public static void init() {
         // initializes the board as a list
         System.out.print("Enter the board size: ");
@@ -16,20 +18,20 @@ public class Gameboard {
         FirstSquare first = new FirstSquare();
         list_of_squares[0] = first;
         LastSquare last = new LastSquare();
-        list_of_squares[board_size -1] = last;
+        list_of_squares[board_size - 1] = last;
         //makes ladders at every fifth square. begins at the third square.
-        for (int i = 3; i < board_size - 5; i+=5 ){
+        for (int i = 3; i < board_size - 5; i += 5) {
             Ladder ladder = new Ladder(i);
-            list_of_squares[i-1] = ladder;
+            list_of_squares[i - 1] = ladder;
         }
         // makes snakes at every sixth square. begins at the fifth square.
         // if there is a ladder at the counted square, the next suqare will be a snake.
-        for (int i = 5; i < board_size - 2; i+=6 ) {
-            if (list_of_squares[i - 1] == null && list_of_squares[i-5] == null) {
+        for (int i = 5; i < board_size - 2; i += 6) {
+            if (list_of_squares[i - 1] == null && list_of_squares[i - 5] == null) {
                 Snake snake = new Snake(i);
                 list_of_squares[i - 1] = snake;
             } else {
-                Snake snake = new Snake(i+1);
+                Snake snake = new Snake(i + 1);
                 list_of_squares[i] = snake;
             }
         }
@@ -51,15 +53,12 @@ public class Gameboard {
         }
     }
 
-    public Queue<Player> getPlayers(){
+    public Queue<Player> getPlayers() {
         return list_of_players;
     }
-    public static int get_board_size(){
+
+    public static int get_board_size() {
         return board_size;
     }
-
-    public static void main(String[] args) {
-        init();
-        }
-    }
+}
 

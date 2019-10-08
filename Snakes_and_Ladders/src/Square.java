@@ -1,3 +1,4 @@
+//implements square, keeps track if square is occupied
 public class Square {
     //    occupied = 0 --> is free, occupied = 1 --> is occupied
     protected int occupied = 0;

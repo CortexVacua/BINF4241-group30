@@ -1,12 +1,18 @@
-import java.util.*;
-
+// connects all the main classes and moves the game state along
 public class Game {
+    public Gameboard gb = new Gameboard();
     protected Die die = new Die();
     public Printer printer = new Printer();
-    public void game_flow(Gameboard gb){
+    public void game_start(){
+//      intializes gameboard
+        gb.init();
+
+
 //      prints the initial state
         printer.initialization();
         printer.board_state(gb.list_of_players, gb.list_of_squares, gb.board_size);
+
+//      plays through game
         while (gb.list_of_squares[gb.board_size-1].isOccupied() == 0){
                 int die_roll=die.roll_die();
 //              prints the output of every turn
@@ -28,7 +34,7 @@ public class Game {
                     break;
                 }
 
-//              go backwards if you overshoot the last square
+//              player goes backwards if he/she overshoots the last square
                 if(possible_square > gb.board_size){
                     possible_square = gb.board_size - (possible_square-gb.board_size);
                 }
