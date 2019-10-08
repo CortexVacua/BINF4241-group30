@@ -8,11 +8,14 @@ public class Gameboard {
     static Queue<Player> list_of_players = new LinkedList<>();
     static int board_size;
     static Square[] list_of_squares;
+    static int number_of_players;
 
     public static void init() {
         // initializes the board as a list
-        System.out.print("Enter the board size: ");
-        board_size = input.nextInt();
+        while (board_size <= 5) {
+            System.out.print("Enter the board size (greater than 5): ");
+            board_size = input.nextInt();
+        }
         list_of_squares = new Square[board_size];
         // adds first and last square
         FirstSquare first = new FirstSquare();
@@ -43,8 +46,10 @@ public class Gameboard {
             }
         }
         //initialize players and add them into a player list.
-        System.out.print("Enter the number of players (between 2 and 4): ");
-        int number_of_players = input.nextInt();
+        while (number_of_players < 2 || number_of_players > 4) {
+            System.out.print("Enter the number of players (between 2 and 4): ");
+            number_of_players = input.nextInt();
+        }
         for (int i = 1; i <= number_of_players; i++) {
             System.out.print("Enter the name of Player " + i + ": ");
             String name = input.next();

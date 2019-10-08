@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b4763de-061e-4e6a-81de-0f5ba07e5e1f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snakes_and_Ladders/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/src/Gameboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snakes_and_Ladders/src/Gameboard.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
