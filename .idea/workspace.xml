@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b4763de-061e-4e6a-81de-0f5ba07e5e1f" name="Default Changelist" comment="">
+    <list default="true" id="8b4763de-061e-4e6a-81de-0f5ba07e5e1f" name="Default Changelist" comment="Created Piece classes and color enum">
+      <change beforePath="$PROJECT_DIR$/.idea/BINF4241-group30-Snakes-and-Ladders.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BINF4241-group30.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snakes_and_Ladders/src/Gameboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snakes_and_Ladders/src/Gameboard.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,6 +15,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -21,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="TestMatej" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,7 +35,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/eclipse-workspace/Charlie" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
@@ -60,7 +62,7 @@
     </configuration>
     <configuration name="main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main" />
-      <module name="BINF4241-group30-Snakes-and-Ladders" />
+      <module name="BINF4241-group30" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -76,6 +78,8 @@
       <list>
         <item itemvalue="Application.mainClass" />
         <item itemvalue="Application.Gameboard" />
+        <item itemvalue="Application.mainClass" />
+        <item itemvalue="Application.Gameboard" />
       </list>
     </recent_temporary>
   </component>
@@ -84,13 +88,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2bc51419-85d1-43ad-8614-6bb945329e21" name="Default Changelist" comment="" />
+      <changelist id="8b4763de-061e-4e6a-81de-0f5ba07e5e1f" name="Default Changelist" comment="Created Piece classes and color enum" />
       <created>1570278798872</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570278798872</updated>
       <workItem from="1570278804323" duration="82000" />
       <workItem from="1570281417179" duration="527000" />
+      <workItem from="1571162463904" duration="658000" />
     </task>
     <task id="LOCAL-00001" summary="Creation of my test branch">
       <created>1570281613601</created>
@@ -155,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570491753369</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Created Piece classes and color enum">
+      <created>1570998032735</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1570998032735</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +197,7 @@
     <MESSAGE value="gameplay output completed" />
     <MESSAGE value="Snake and Ladder Output completed!" />
     <MESSAGE value="some improvements and bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some improvements and bug fixes" />
+    <MESSAGE value="Created Piece classes and color enum" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Piece classes and color enum" />
   </component>
 </project>
