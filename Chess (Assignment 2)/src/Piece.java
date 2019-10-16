@@ -1,5 +1,5 @@
 public class Piece {
-    private int x;
-    private int y;
+    private Row y;
+    private Column x;
     private Color color;
 }

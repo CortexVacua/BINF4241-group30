@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b4763de-061e-4e6a-81de-0f5ba07e5e1f" name="Default Changelist" comment="Created Piece classes and color enum">
-      <change afterPath="$PROJECT_DIR$/Chess (Assignment 2)/src/Collumn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess (Assignment 2)/src/Row.java" afterDir="false" />
+    <list default="true" id="8b4763de-061e-4e6a-81de-0f5ba07e5e1f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess (Assignment 2)/src/Collumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chess (Assignment 2)/src/Column.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess (Assignment 2)/src/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chess (Assignment 2)/src/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess (Assignment 2)/src/Row.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chess (Assignment 2)/src/Row.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -219,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570998032735</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Made some enums for the rows and collumns">
+      <created>1571213051028</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1571213051032</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +258,7 @@
     <MESSAGE value="Snake and Ladder Output completed!" />
     <MESSAGE value="some improvements and bug fixes" />
     <MESSAGE value="Created Piece classes and color enum" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Piece classes and color enum" />
+    <MESSAGE value="Made some enums for the rows and collumns" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made some enums for the rows and collumns" />
   </component>
 </project>
