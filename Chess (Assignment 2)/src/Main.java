@@ -3,11 +3,12 @@ public class Main {
         Gameboard gb1 = new Gameboard();
         for (int i = 0; i<=63; i++) {
             Field x = gb1.Fields.get(i);
-            System.out.println(x.getaColor());
-            System.out.println(x.getaRow());
-            System.out.println(x.getaColumn());
-            System.out.println(x.getaOccupied());
-            System.out.println("\n\n");
+            x.getaColumn().get_column_number();
+//            System.out.println(x.getaColor());
+//            System.out.println(x.getaRow());
+//            System.out.println(x.getaColumn());
+//            System.out.println(x.getaOccupied());
+//            System.out.println("\n\n");
         }
     }
 }
