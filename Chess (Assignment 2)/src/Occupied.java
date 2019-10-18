@@ -1,3 +1,3 @@
 public enum Occupied {
-    WHITE,BLACK, UNOCCUPIED
+    OCCUPIED, UNOCCUPIED;
 }
