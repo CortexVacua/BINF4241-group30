@@ -1,8 +1,8 @@
 public class Piece {
     private Row y;
     private Column x;
-    private Color color;
-    private int number_of_moves;
+    protected Color color;
+    protected int number_of_moves;
 
     //not moving anything is not a valid move
     public boolean isValid(Column fromX, Row fromY, Column toX, Row toY) {
