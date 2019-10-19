@@ -7,6 +7,9 @@ public class Game {
     private boolean GameOver = false;
 
     public Game(){
+//        initializes Gameboard and Printer
+        Gameboard gb1 = new Gameboard();
+        Printer printer = new Printer();
 //        initializes the players
         System.out.println("Please enter the first player's name (white): ");
         Scanner name_P1 = new Scanner (System.in);
@@ -21,6 +24,7 @@ public class Game {
         String move_to="";
         while (!GameOver){
             Player current_player= PlayerQueue.remove();
+            printer.board_state(gb1.Fields, gb1.Pieces);
             while(move_from.length()<2 || move_to.length() < 2) {
                 System.out.println(current_player.getName()+", please enter your move in algebraic notation:");
                 Scanner move = new Scanner(System.in);
