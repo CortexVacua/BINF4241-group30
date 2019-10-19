@@ -5,6 +5,7 @@ public class Piece {
     protected int number_of_moves;
 
     //not moving anything is not a valid move
+    //TODO: check if the move is to a spot with another piece of your color; if yes, then the move is not valid
     public boolean isValid(Column fromX, Row fromY, Column toX, Row toY) {
         return toX.column_number != fromX.column_number || toY.row_number != fromY.row_number;
     }
