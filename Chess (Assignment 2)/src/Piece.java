@@ -1,6 +1,6 @@
 public class Piece {
-    private Row y;
-    private Column x;
+    protected Row y;
+    protected Column x;
     protected Color color;
     protected int number_of_moves;
 
@@ -8,5 +8,21 @@ public class Piece {
     //TODO: check if the move is to a spot with another piece of your color; if yes, then the move is not valid
     public boolean isValid(Column fromX, Row fromY, Column toX, Row toY) {
         return toX.column_number != fromX.column_number || toY.row_number != fromY.row_number;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Column getX() {
+        return x;
+    }
+
+    public Row getY() {
+        return y;
+    }
+
+    public int getNumber_of_moves() {
+        return number_of_moves;
     }
 }

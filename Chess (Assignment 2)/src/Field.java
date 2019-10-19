@@ -11,6 +11,14 @@ public class Field {
         aOccupied=pOccupied;
     }
 
+    public void occupy () {
+        this.aOccupied = Occupied.OCCUPIED;
+    }
+
+    public void unoccupy () {
+        this.aOccupied = Occupied.UNOCCUPIED;
+    }
+
     public Color getaColor() {
         return aColor;
     }
