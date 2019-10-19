@@ -10,7 +10,7 @@ public enum Row {
 
     public final int row_number;
 
-    private Row(int row_number){
+    Row(int row_number){
         this.row_number = row_number;
     }
 

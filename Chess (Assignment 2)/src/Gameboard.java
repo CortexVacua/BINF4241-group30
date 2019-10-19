@@ -58,4 +58,27 @@ public class Gameboard {
         Pieces.add(new Bishop(Row.ONE,Column.F, Color.WHITE));
 
     }
+
+    public Field getField(Column x, Row y) {
+        Field init_field = null;
+        for (Field field: Fields) {
+            if (field.getaColumn().column_number == x.column_number) {
+                if (field.getaRow().row_number == y.row_number) {
+                    init_field = field;
+                    break;
+                }
+            }
+        } return init_field;
+    }
+    public Piece getPiece(Column x, Row y) {
+        Piece init_piece = null;
+        for(Piece piece: Pieces) {
+            if (piece.getX().column_number == x.column_number) {
+                if (piece.getY().row_number == y.row_number) {
+                    init_piece = piece;
+                    break;
+                }
+            }
+        } return init_piece;
+    }
 }
