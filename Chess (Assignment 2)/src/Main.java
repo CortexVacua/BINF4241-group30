@@ -1,6 +1,8 @@
 public class Main {
     public static void main(String[] args) {
         Gameboard gb1 = new Gameboard();
+        Printer printer = new Printer();
+        printer.board_state(gb1.Fields, gb1.Pieces);
 //        for (int i = 0; i<=63; i++) {
 //            Field x = gb1.Fields.get(i);
 //            x.getaColumn().get_column_number();
