@@ -25,11 +25,11 @@ public class Piece {
         return color;
     }
 
-    public Column getX() {
+    public Column getColumn() {
         return x;
     }
 
-    public Row getY() {
+    public Row getRow() {
         return y;
     }
 
