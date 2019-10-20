@@ -34,4 +34,25 @@ public class Field {
     public Row getaRow() {
         return aRow;
     }
+
+    //checks if a piece attacks this field; returns true if attacked
+    public boolean checkIfAttacked(Gameboard gb) {
+        for(Piece piece : gb.getPieces()) {
+            if(piece.isValid(gb, aColumn, aRow)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    // checks if pieces of a given color attack this field; returns true if attacked
+    public boolean checkIfAttacked(Gameboard gb, Color color) {
+        for(Piece piece : gb.getPieces()) {
+            if (piece.getColor() == color) {
+                if(piece.isValid(gb, aColumn, aRow)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

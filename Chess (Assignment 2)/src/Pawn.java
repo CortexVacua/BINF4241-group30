@@ -9,6 +9,7 @@ public class Pawn extends Piece {
     }
 
     // Checks whether the piece is allowed to do this kind of move; capture of potential pieces has to be checked by game class.
+    //TODO: En passant, diagonal capture, promotion, hinder move if field in front of pawn is occupied
     public boolean isValid(Gameboard gb, Column toX, Row toY) {
         if (!super.isValid(gb, toX, toY)) {
             return false;

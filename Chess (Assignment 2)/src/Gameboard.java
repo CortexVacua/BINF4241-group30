@@ -73,12 +73,15 @@ public class Gameboard {
     public Piece getPiece(Column x, Row y) {
         Piece init_piece = null;
         for(Piece piece: Pieces) {
-            if (piece.getX().column_number == x.column_number) {
-                if (piece.getY().row_number == y.row_number) {
+            if (piece.getColumn().column_number == x.column_number) {
+                if (piece.getRow().row_number == y.row_number) {
                     init_piece = piece;
                     break;
                 }
             }
         } return init_piece;
+    }
+    public List<Piece> getPieces() {
+        return Pieces;
     }
 }
