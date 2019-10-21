@@ -18,6 +18,12 @@ public class Main {
 //            System.out.println("\n\n");
 //        }
         Game dfs= new Game();
+
+
+//        AlgebraicNotation alg=new AlgebraicNotation();
+//        for (String num : alg.reg_moves)
+//            System.out.println(num);
+
     }
 }
 
