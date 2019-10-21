@@ -45,20 +45,59 @@ public class Game {
 //              check if move is legal
                 else {
                     int[] field_param = alg_not.field_interpreter(move_str);
+                    int[] specifiers = alg_not.specifier(move_str);
+                    int possible_pieces = 0;
+                    List<Piece> potential_pieces= new ArrayList<Piece>();
                     Column c = col.get(field_param[0]-1);
                     Row r = rows.get(field_param[1]-1);
                     Object what_figure= alg_not.getTypeOfFigure(move_str);
-                    int possible_pieces = 0;
-                    List<Piece> potential_pieces= new ArrayList<Piece>();
-                    for (Piece p : gb1.Pieces) {
-                        if (p.getColor() == current_player.getColor() && p.getClass() == what_figure
-                                && p.isValid(gb1, c, r)) {
-                            possible_pieces++;
-                            potential_pieces.add(p);
+
+//case without extra specifiers
+                    if (specifiers[0]==9  & specifiers[1]==9){
+                        for (Piece p : gb1.Pieces) {
+                            if (p.getColor() == current_player.getColor() && p.getClass() == what_figure
+                                    && p.isValid(gb1, c, r)) {
+                                possible_pieces++;
+                                potential_pieces.add(p);
+                            }
                         }
                     }
+//case with column as extra specifier
+                    if (specifiers[0]!=9  & specifiers[1]==9){
+                        for (Piece p : gb1.Pieces) {
+                            if (p.getColor() == current_player.getColor() && p.getClass() == what_figure
+                                    && p.isValid(gb1, c, r) && p.getColumn()==col.get(specifiers[0]-1)) {
+                                possible_pieces++;
+                                potential_pieces.add(p);
+                            }
+                        }
+                    }
+
+//case with row as extra specifier
+                    if (specifiers[0]==9  & specifiers[1]!=9){
+                        for (Piece p : gb1.Pieces) {
+                            if (p.getColor() == current_player.getColor() && p.getClass() == what_figure
+                                    && p.isValid(gb1, c, r) && p.getRow()==rows.get(specifiers[1]-1)) {
+                                possible_pieces++;
+                                potential_pieces.add(p);
+                            }
+                        }
+                    }
+
+//case with exact field of moving piece
+                    if (specifiers[0]!=9  & specifiers[1]!=9){
+                        for (Piece p : gb1.Pieces) {
+                            if (p.getColor() == current_player.getColor() && p.getClass() == what_figure
+                                    && p.isValid(gb1, c, r) && p.getColumn()==col.get(specifiers[0]-1)
+                                    && p.getRow()==rows.get(specifiers[1]-1)) {
+                                possible_pieces++;
+                                potential_pieces.add(p);
+                            }
+                        }
+                    }
+
                     if (possible_pieces ==0) System.out.println("Could not find "+what_figure+" that can move to desired field.");
-                    else if (possible_pieces>1)  System.out.println("Too many"+what_figure+"s can move to the desired field, please satisfy further.");
+                    else if (possible_pieces>1)  System.out.println("Too many "+what_figure+"s can move to the desired field, please specify further.");
                     else {
                         for (Field f : gb1.Fields){
                             if (f.getaRow()==potential_pieces.get(0).getRow() && f.getaColumn()== potential_pieces.get(0).getColumn()){

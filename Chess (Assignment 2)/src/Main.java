@@ -21,8 +21,7 @@ public class Main {
 
 
 //        AlgebraicNotation alg=new AlgebraicNotation();
-//        for (String num : alg.reg_moves)
-//            System.out.println(num);
+//        System.out.println(alg.reg_moves.contains("Ra1xa7"));
 
     }
 }
