@@ -18,6 +18,13 @@ public class Piece {
                 return false;
             }
         }
+        //for (Piece piece : gb.getPieces()) {
+        //  if (piece.getColor() == color && piece instanceof King) {
+        //      if (((King) piece).checkIfChecked(gb)) {
+        //          Gameboard gb2 = copy constructor;
+        //        }
+        //     }
+        //  }
         return toX.column_number != x.column_number || toY.row_number != y.row_number;
     }
 
