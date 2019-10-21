@@ -40,5 +40,6 @@ public class Piece {
     public void setPosition(Column x, Row y) {
         this.y = y;
         this.x = x;
+        number_of_moves ++;
     }
 }
