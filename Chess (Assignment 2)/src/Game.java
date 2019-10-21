@@ -116,18 +116,13 @@ public class Game {
 //                   if move is legal, completes the move
                     else {
 
+//                  unoccupies previous field
                         for (Field f : gb1.Fields){
                             if (f.getaRow()==potential_pieces.get(0).getRow() && f.getaColumn()== potential_pieces.get(0).getColumn()){
                                 f.unoccupy();
                             }
                         }
-
-                        for (Field f : gb1.Fields){
-                            if (f.getaRow()==r && f.getaColumn()== c){
-                                f.occupy();
-                            }
-                        }
-                        potential_pieces.get(0).setPosition(c,r);
+//                  removes captured piece from the field
                         if (enemy_piece_on_field){
                             for (Piece p : gb1.Pieces) {
                                 if (p.getRow()== r && p.getColumn()== c && p.getColor()!=current_player.getColor()){
@@ -136,6 +131,14 @@ public class Game {
                                 }
                             }
                         }
+//                  occupies new field
+                        for (Field f : gb1.Fields){
+                            if (f.getaRow()==r && f.getaColumn()== c){
+                                f.occupy();
+                            }
+                        }
+                        potential_pieces.get(0).setPosition(c,r);
+
                         input_legal=true;
 
                     }
