@@ -28,15 +28,11 @@ public class Piece {
                 return false;
             }
         }
-        //checks if this move undoes check in case of checked King
+        //checks if this move undoes check in case of checked King or places the king in check in the first place
         Gameboard gb2 = new Gameboard(gb);
         for (Piece piece : gb2.getPieces()) {
           if (piece.getColor() == color && piece instanceof King) {
-              if (((King) piece).checkIfChecked(gb2)) {
                   if (gb2.getPiece(toX, toY) != null) {
-                      if (gb2.getPiece(toX, toY) instanceof  King) {
-                          return false;
-                      }
                       for (Piece p : gb2.getPieces()) {
                           if (p.getRow()== toY && p.getColumn()== toX) {
                               gb2.Pieces.remove(p);
@@ -55,12 +51,8 @@ public class Piece {
                           return false;
                       }
                   }
-
-
-
                 }
-             }
-          }
+        }
         return toX.column_number != x.column_number || toY.row_number != y.row_number;
     }
 
