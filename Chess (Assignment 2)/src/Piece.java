@@ -40,6 +40,7 @@ public class Piece {
                       gb2.getPiece(x, y).setPosition(toX, toY);
                       gb2.getField(x, y).unoccupy();
                       if (((King) piece).checkIfChecked(gb2)) {
+                          System.out.println("You are making a move that puts or leaves your king in check. ");
                           return false;
                       }
                   }
@@ -47,6 +48,7 @@ public class Piece {
                       gb2.getPiece(x, y).setPosition(toX, toY);
                       gb2.getField(x, y).unoccupy();
                       if (((King) piece).checkIfChecked(gb2)) {
+                          System.out.println("You are making a move that puts or leaves your king in check. ");
                           return false;
                       }
                   }
