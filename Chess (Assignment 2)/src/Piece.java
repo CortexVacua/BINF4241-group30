@@ -15,7 +15,6 @@ public class Piece {
     }
 
     //not moving anything is not a valid move; going out of bounds is not a valid move; capturing King is not a valid move; capturing a piece of your own is not a valid move
-    //TODO: check if color of the moved piece matches color of the player who moves it
     public boolean isValid(Gameboard gb, Column toX, Row toY) {
         if(toX.column_number > 8 || toY.row_number > 8 || toX.column_number < 1 || toY.row_number < 1) {
             return false;
