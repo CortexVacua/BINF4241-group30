@@ -4,6 +4,13 @@ public class Piece {
     protected Color color;
     protected int number_of_moves;
 
+    public Piece(Piece p) {
+        this.y = p.getRow();
+        this.x = p.getColumn();
+        this.color = p.getColor();
+        this.number_of_moves = p.getNumber_of_moves();
+    }
+
     //not moving anything is not a valid move; going out of bounds is not a valid move; capturing King is not a valid move; capturing a piece of your own is not a valid move
     //TODO: check if color of the moved piece matches color of the player who moves it
     public boolean isValid(Gameboard gb, Column toX, Row toY) {
@@ -18,13 +25,14 @@ public class Piece {
                 return false;
             }
         }
-        //for (Piece piece : gb.getPieces()) {
-        //  if (piece.getColor() == color && piece instanceof King) {
-        //      if (((King) piece).checkIfChecked(gb)) {
-        //          Gameboard gb2 = copy constructor;
-        //        }
-        //     }
-        //  }
+//        for (Piece piece : gb.getPieces()) {
+//          if (piece.getColor() == color && piece instanceof King) {
+//              if (((King) piece).checkIfChecked(gb)) {
+//                  Gameboard gb2 = new Gameboard(gb);
+//
+//                }
+//             }
+//          }
         return toX.column_number != x.column_number || toY.row_number != y.row_number;
     }
 

@@ -61,9 +61,10 @@ public class Game {
 
 //case without extra specifiers
                     if (specifiers[0]==9  & specifiers[1]==9){
+                        Gameboard gb2 = new Gameboard(gb1);
                         for (Piece p : gb1.Pieces) {
                             if (p.getColor() == current_player.getColor() && p.getClass() == what_figure
-                                    && p.isValid(gb1, c, r)) {
+                                    && p.isValid(gb2, c, r)) {
                                 possible_pieces++;
                                 potential_pieces.add(p);
                             }
@@ -71,9 +72,10 @@ public class Game {
                     }
 //case with column as extra specifier
                     if (specifiers[0]!=9  & specifiers[1]==9){
+                        Gameboard gb2 = new Gameboard(gb1);
                         for (Piece p : gb1.Pieces) {
                             if (p.getColor() == current_player.getColor() && p.getClass() == what_figure
-                                    && p.isValid(gb1, c, r) && p.getColumn()==col.get(specifiers[0]-1)) {
+                                    && p.isValid(gb2, c, r) && p.getColumn()==col.get(specifiers[0]-1)) {
                                 possible_pieces++;
                                 potential_pieces.add(p);
                             }
@@ -82,9 +84,10 @@ public class Game {
 
 //case with row as extra specifier
                     if (specifiers[0]==9  & specifiers[1]!=9){
+                        Gameboard gb2 = new Gameboard(gb1);
                         for (Piece p : gb1.Pieces) {
                             if (p.getColor() == current_player.getColor() && p.getClass() == what_figure
-                                    && p.isValid(gb1, c, r) && p.getRow()==rows.get(specifiers[1]-1)) {
+                                    && p.isValid(gb2, c, r) && p.getRow()==rows.get(specifiers[1]-1)) {
                                 possible_pieces++;
                                 potential_pieces.add(p);
                             }
@@ -93,9 +96,10 @@ public class Game {
 
 //case with exact field of moving piece
                     if (specifiers[0]!=9  & specifiers[1]!=9){
+                        Gameboard gb2 = new Gameboard(gb1);
                         for (Piece p : gb1.Pieces) {
                             if (p.getColor() == current_player.getColor() && p.getClass() == what_figure
-                                    && p.isValid(gb1, c, r) && p.getColumn()==col.get(specifiers[0]-1)
+                                    && p.isValid(gb2, c, r) && p.getColumn()==col.get(specifiers[0]-1)
                                     && p.getRow()==rows.get(specifiers[1]-1)) {
                                 possible_pieces++;
                                 potential_pieces.add(p);
