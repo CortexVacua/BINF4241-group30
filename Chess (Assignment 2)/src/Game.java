@@ -124,9 +124,9 @@ public class Game {
                         }
 //                  removes captured piece from the field
                         if (enemy_piece_on_field){
-                            for (Piece p : gb1.Pieces) {
-                                if (p.getRow()== r && p.getColumn()== c && p.getColor()!=current_player.getColor()){
-                                    Piece dead_piece = gb1.Pieces.remove(gb1.Pieces.indexOf(p));
+                            for (int i=0; i<=gb1.Pieces.size()-1; i++) {
+                                if (gb1.Pieces.get(i).getRow()== r && gb1.Pieces.get(i).getColumn()== c && gb1.Pieces.get(i).getColor()!=current_player.getColor()){
+                                    Piece dead_piece=gb1.Pieces.remove(i);
                                     current_player.add_captures(dead_piece);
                                 }
                             }
