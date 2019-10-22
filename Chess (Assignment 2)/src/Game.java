@@ -166,6 +166,20 @@ public class Game {
                 }
             }
             PlayerQueue.add(current_player);
+
+//          Initialize Promotion
+            for (int i = 0 ; i<gb1.Pieces.size() ; i++){
+                if ( gb1.Pieces.get(i) instanceof Pawn && gb1.Pieces.get(i).getRow() == Row.EIGHT){
+                    Column c = gb1.Pieces.get(i).getColumn();
+                    gb1.Pieces.remove(gb1.Pieces.get(i));
+                    gb1.Pieces.add(new Queen(Row.EIGHT,c, Color.WHITE));
+                }
+                else if ( gb1.Pieces.get(i) instanceof Pawn && gb1.Pieces.get(i).getRow() == Row.ONE){
+                    Column c = gb1.Pieces.get(i).getColumn();
+                    gb1.Pieces.remove(gb1.Pieces.get(i));
+                    gb1.Pieces.add(new Queen(Row.ONE,c, Color.BLACK));
+                }
+            }
         }
     }
 }
