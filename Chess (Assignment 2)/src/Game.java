@@ -54,13 +54,21 @@ public class Game {
                     List<Piece> potential_pieces= new ArrayList<Piece>();
                     Column c = col.get(field_param[0]-1);
                     Row r = rows.get(field_param[1]-1);
+                    Row rk;
                     Object what_figure= alg_not.getTypeOfFigure(move_str);
 
 
-
-
 //case without extra specifiers
-                    if (specifiers[0]==9  & specifiers[1]==9){
+                    if (move_str.length()==8){
+                        for (Piece p : gb1.Pieces) {
+                            if (p.getColor() == current_player.getColor() && p.getClass() == what_figure
+                                    && ((Pawn) p).isValidEnPassant(gb1, c, r)){
+                                possible_pieces++;
+                                potential_pieces.add(p);
+                            }
+                        }
+                    }
+                    else if (specifiers[0]==9  & specifiers[1]==9){
                         for (Piece p : gb1.Pieces) {
                             if (p.getColor() == current_player.getColor() && p.getClass() == what_figure
                                     && p.isValid(gb1, c, r)) {
@@ -123,6 +131,18 @@ public class Game {
                             }
                         }
 //                  removes captured piece from the field
+                        if (move_str.length()==8){
+                            rk= rows.get(field_param[1]-2);
+                            for (int i=0; i<=gb1.Pieces.size()-1; i++) {
+                                if (gb1.Pieces.get(i).getRow()== rk && gb1.Pieces.get(i).getColumn()== c && gb1.Pieces.get(i).getColor()!=current_player.getColor()){
+                                    Piece dead_piece=gb1.Pieces.remove(i);
+                                    current_player.add_captures(dead_piece);
+                                    for (Field f: gb1.Fields){
+                                        if (f.getaColumn()==c && f.getaRow() ==rk) f.unoccupy();
+                                    }
+                                }
+                            }
+                        }
                         if (enemy_piece_on_field){
                             for (int i=0; i<=gb1.Pieces.size()-1; i++) {
                                 if (gb1.Pieces.get(i).getRow()== r && gb1.Pieces.get(i).getColumn()== c && gb1.Pieces.get(i).getColor()!=current_player.getColor()){

@@ -94,7 +94,6 @@ public class Pawn extends Piece {
 
             }
         }
-        isValidEnPassant(gb,toX,toY);
         return false;
     }
     //checks if this en passant move is valid
