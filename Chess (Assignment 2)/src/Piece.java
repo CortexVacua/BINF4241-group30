@@ -28,12 +28,36 @@ public class Piece {
                 return false;
             }
         }
-        for (Piece piece : gb.getPieces()) {
+        //checks if this move undoes check in case of checked King
+        Gameboard gb2 = new Gameboard(gb);
+        for (Piece piece : gb2.getPieces()) {
           if (piece.getColor() == color && piece instanceof King) {
-              if (((King) piece).checkIfChecked(gb)) {
-                  Gameboard gb2 = new Gameboard(gb);
-                  gb2.getPiece(x, y).setPosition(toX, toY);
-                  gb2.getField(x, y).unoccupy();
+              if (((King) piece).checkIfChecked(gb2)) {
+                  if (gb2.getPiece(toX, toY) != null) {
+                      if (gb2.getPiece(toX, toY) instanceof  King) {
+                          return false;
+                      }
+                      for (Piece p : gb2.getPieces()) {
+                          if (p.getRow()== toY && p.getColumn()== toX) {
+                              gb2.Pieces.remove(p);
+                          }
+                      }
+                      gb2.getPiece(x, y).setPosition(toX, toY);
+                      gb2.getField(x, y).unoccupy();
+                      if (((King) piece).checkIfChecked(gb2)) {
+                          return false;
+                      }
+                  }
+                  else {
+                      gb2.getPiece(x, y).setPosition(toX, toY);
+                      gb2.getField(x, y).unoccupy();
+                      if (((King) piece).checkIfChecked(gb2)) {
+                          return false;
+                      }
+                  }
+
+
+
                 }
              }
           }
