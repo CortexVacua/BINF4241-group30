@@ -17,7 +17,7 @@ public class Main {
 //            System.out.println(x.getNumber_of_moves());
 //            System.out.println("\n\n");
 //        }
-        Game dfs= new Game();
+          Game dfs= new Game();
 
 
 //        AlgebraicNotation alg=new AlgebraicNotation();

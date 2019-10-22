@@ -29,6 +29,16 @@ public class AlgebraicNotation {
             }
         }
 
+//        en passant moves
+        //        capture moves for the pawns
+        for (int u=0; u<8; u++){
+            for (int i=0; i<8; i++){
+                for (int j=0; j<8; j++){
+                    special_moves.add(""+possible_columns.charAt(u)+"x"+possible_columns.charAt(i)+possible_rows.charAt(j)+"e.p.");
+                }
+            }
+        }
+
 //        all reg non pawn moves
         for (int u=0; u<5; u++){
             for (int i=0; i<8; i++){
@@ -123,9 +133,19 @@ public class AlgebraicNotation {
 
 //    return field parameters as integers
     public int[] field_interpreter (String str){
-        int a= possible_columns.indexOf(str.charAt(str.length()-2)) + 1;
-        int b= possible_rows.indexOf(str.charAt(str.length()-1)) + 1;
-        int[] ab= {a,b};
+        int[] ab= new int[2];
+        if (str.length()==8){
+            int a= possible_columns.indexOf(str.charAt(2))+1;
+            int b= possible_rows.indexOf(str.charAt(3))+1;
+            ab[0]= a;
+            ab[1]= b;
+        }
+        else {
+            int a= possible_columns.indexOf(str.charAt(str.length()-2)) + 1;
+            int b= possible_rows.indexOf(str.charAt(str.length()-1)) + 1;
+            ab[0]= a;
+            ab[1]= b;
+        }
         return ab;
     }
 
