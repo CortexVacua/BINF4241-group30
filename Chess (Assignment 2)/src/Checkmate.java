@@ -48,20 +48,19 @@ public class Checkmate {
                 }
             }
         }
-        if (att_pieces.size()==0) { System.out.print("No Attackers! "); return false;}
-        else if (dodge_fields.size()>0) { System.out.print("Check! You can dodge! "); return false;}
+        if (att_pieces.size()==0) { return false;}
+        else if (dodge_fields.size()>0) { System.out.print("Check!\n"); return false;}
         else if (att_pieces.size()>1) return true;
         else if (att_pieces.size()==1) {
 //          searches a piece of the defender that could kill the attacker
             for(int i=0 ; i<gb1.Pieces.size() ; i++){
                 if (gb1.Pieces.get(i).getColor() == def_color &&
                         gb1.Pieces.get(i).isValid(gb1 , att_pieces.get(0).getColumn() , att_pieces.get(0).getRow())){
-                    System.out.print("Check! Someone can kill Attacker! "); return false;}
+                    System.out.print("Check!\n"); return false;}
             }
         }
         if (att_pieces.get(0) instanceof Knight) return true;
         else {
-            System.out.print("last case reached");
 //          gets the stats of the defender's king again
             for(int i=0 ; i<gb1.Pieces.size() ; i++){
                 if(gb1.Pieces.get(i) instanceof King && gb1.Pieces.get(i).getColor() == def_color) {
@@ -135,12 +134,12 @@ public class Checkmate {
                 System.out.print(block_fields.get(k).getaRow());
                 for (int i=0 ; i<gb1.Pieces.size() ; i++){
                     if(gb1.Pieces.get(i).getColor() == def_color && gb1.Pieces.get(i).isValid(gb1,block_fields.get(k).getaColumn(),block_fields.get(k).getaRow())){
-                        System.out.print("Check! You can block the Attacker");
+                        System.out.print("Check!\n");
                         return false;
                     }
                 }
             }
         }
-        System.out.print("Check! No Escape! QwQ");
+        System.out.println("Congratulations, "+att_player.getName()+" has won the game by checkmate!");
         return true;}
     }
