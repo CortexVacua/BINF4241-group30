@@ -13,16 +13,6 @@ public class King extends Piece {
         if (!super.isValid(gb, toX, toY)) {
             return false;
         }
-        if (color == Color.WHITE) {
-            if (gb.getField(toX, toY).checkIfAttacked(gb, Color.BLACK)) {
-                return false;
-            }
-        }
-        if (color == Color.BLACK) {
-            if (gb.getField(toX, toY).checkIfAttacked(gb, Color.WHITE)) {
-                return false;
-            }
-        }
         if (toX.column_number == x.column_number - 1 || toX.column_number == x.column_number + 1) {
             if (toY.row_number == y.row_number - 1 || toY.row_number == y.row_number || toY.row_number == y.row_number + 1) {
                 return true;
