@@ -35,11 +35,16 @@ public class Checkmate {
                     }
                 }
 //              SEARCHES DOGDE FIELD COULD BE BUGGY
+                boolean is_safe_field = false;
                 for (int k=0; k<gb1.Fields.size(); k++){
-                    if (def_King.isValid(gb1, gb1.Fields.get(k).getaColumn(), gb1.Fields.get(k).getaRow()))
+                    if (def_King.isValid(gb1, gb1.Fields.get(k).getaColumn(), gb1.Fields.get(k).getaRow())){
+                        is_safe_field = true;
                         for (int l=0; l<gb1.Pieces.size(); l++){
-                            if(!gb1.Pieces.get(l).isValid(gb1, gb1.Fields.get(k).getaColumn(), gb1.Fields.get(k).getaRow())) dodge_fields.add(gb1.Fields.get(k));
-                }
+                            if(gb1.Pieces.get(l).isValid(gb1, gb1.Fields.get(k).getaColumn(), gb1.Fields.get(k).getaRow())
+                                    && gb1.Pieces.get(l).getColor() == att_player.getColor()) is_safe_field = false;
+                        }
+                    }
+                    if (is_safe_field == true) dodge_fields.add(gb1.Fields.get(k));
                 }
             }
         }
