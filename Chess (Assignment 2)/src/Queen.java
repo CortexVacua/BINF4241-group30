@@ -16,7 +16,7 @@ public class Queen extends Piece {
         if(Math.abs(toX.column_number - x.column_number) == Math.abs(toY.row_number - y.row_number)) {
             int vertical_distance = toY.row_number - y.row_number;
             int horizontal_distance = toX.column_number - x.column_number;
-//            if (Math.abs(vertical_distance) >= 2) {
+            if (Math.abs(vertical_distance) >= 2) {
                 if (horizontal_distance > 0) {
                     if (vertical_distance > 0) {
                         for (int i = 1; i < vertical_distance; i++) {
@@ -57,12 +57,12 @@ public class Queen extends Piece {
                         }
                     }
                 }
-//            }
+            }
             return true;
         }
         if(toX.column_number == x.column_number) {
             int distance = toY.row_number - y.row_number;
-//            if (Math.abs(distance) >= 2) {
+            if (Math.abs(distance) >= 2) {
                 if (distance > 0) {
                     for (int i = 1; i < distance; i++) {
                         Row row = Row.values()[y.row_number + i - 1];
@@ -81,11 +81,11 @@ public class Queen extends Piece {
                     }
                     return true;
                 }
-//            }
+            }
         }
         if(toY.row_number == y.row_number) {
             int distance = toX.column_number - x.column_number;
-//            if (Math.abs(distance) >= 2) {
+            if (Math.abs(distance) >= 2) {
                 if (distance > 0) {
                     for (int i = 1; i < distance; i++) {
                         Column column = Column.values()[x.column_number + i - 1];
@@ -104,7 +104,7 @@ public class Queen extends Piece {
                     }
                     return true;
                 }
-//            }
+            }
         }
         return false;
     }
