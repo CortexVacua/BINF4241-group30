@@ -58,16 +58,6 @@ public class Gameboard {
         Pieces.add(new Bishop(Row.ONE,Column.F, Color.WHITE));
 
     }
-    public Gameboard(Gameboard gb) {
-        this.Fields = new ArrayList<>();
-        for(Field field : gb.getFields()) {
-            this.Fields.add(new Field(field));
-        }
-        this.Pieces = new ArrayList<>();
-        for(Piece piece : gb.getPieces()) {
-            this.Pieces.add(new Piece(piece));
-        }
-    }
 
     public Field getField(Column x, Row y) {
         Field init_field = null;
@@ -93,8 +83,5 @@ public class Gameboard {
     }
     public List<Piece> getPieces() {
         return Pieces;
-    }
-    public List<Field> getFields() {
-        return Fields;
     }
 }
