@@ -290,7 +290,7 @@ public class Game {
             Checkmate cm = new Checkmate();
             if (cm.checkmate(gb1, current_player)) {
                 GameOver=true;
-                System.out.println("Congratulations, "+current_player.getName()+"has won the game by checkmate");
+                System.out.println("Congratulations, "+current_player.getName()+" has won the game by checkmate!");
             }
 
         }

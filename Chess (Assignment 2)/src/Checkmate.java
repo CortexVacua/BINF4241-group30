@@ -34,7 +34,7 @@ public class Checkmate {
                         att_pieces.add(gb1.Pieces.get(j));
                     }
                 }
-//              SEARCHES DOGDE FIELD COULD BE BUGGY
+//              searches fields where the king can dodge check
                 boolean is_safe_field = false;
                 for (int k=0; k<gb1.Fields.size(); k++){
                     if (def_King.isValid(gb1, gb1.Fields.get(k).getaColumn(), gb1.Fields.get(k).getaRow())){
@@ -48,15 +48,15 @@ public class Checkmate {
                 }
             }
         }
-        if (att_pieces.size()==0) return false;
-        else if (dodge_fields.size()>0) { System.out.print("Check!"); return false;}
+        if (att_pieces.size()==0) { System.out.print("No Attackers! "); return false;}
+        else if (dodge_fields.size()>0) { System.out.print("Check! You can dodge! "); return false;}
         else if (att_pieces.size()>1) return true;
         else if (att_pieces.size()==1) {
 //          searches a piece of the defender that could kill the attacker
             for(int i=0 ; i<gb1.Pieces.size() ; i++){
                 if (gb1.Pieces.get(i).getColor() == def_color &&
                         gb1.Pieces.get(i).isValid(gb1 , att_pieces.get(0).getColumn() , att_pieces.get(0).getRow())){
-                    System.out.print("Check!"); return false;}
+                    System.out.print("Check! Someone can kill Attacker! "); return false;}
             }
         }
         else if (att_pieces.get(0) instanceof Knight) return true;
@@ -99,7 +99,7 @@ public class Checkmate {
 //                      attacker and king are on the same diagonal -> searches the fields between them
                         else if (Math.abs(att_pieces.get(0).getRow().get_row_number()-def_row.get_row_number()) ==
                                 Math.abs(att_pieces.get(0).getColumn().get_column_number()-def_column.get_column_number())){
-                            return false;
+                            return true;
                         }
                     }
                 }
