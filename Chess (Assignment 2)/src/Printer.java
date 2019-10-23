@@ -3,7 +3,6 @@ import java.util.List;
 public class Printer {
 
     public void board_state(List<Field> Fields,List<Piece> Pieces){
-        System.out.println("\n");
         int row_number = 8;
         for (int r=0 ; r<Fields.size()/8 ; r++){
             System.out.print(row_number + " ");
