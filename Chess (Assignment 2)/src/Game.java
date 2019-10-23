@@ -285,7 +285,14 @@ public class Game {
                     gb1.Pieces.remove(gb1.Pieces.get(i));
                     gb1.Pieces.add(new Queen(Row.ONE,c, Color.BLACK));
                 }
+
             }
+            Checkmate cm = new Checkmate();
+            if (cm.checkmate(gb1, current_player)) {
+                GameOver=true;
+                System.out.println("Congratulations, "+current_player.getName()+"has won the game by checkmate");
+            }
+
         }
     }
 }
