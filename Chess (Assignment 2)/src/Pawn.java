@@ -125,4 +125,90 @@ public class Pawn extends Piece {
         }
         return false;
     }
+    public boolean isValidForKing(Gameboard gb, Column toX, Row toY) {
+        if (!super.isValidForKing(gb, toX, toY)) {
+            return false;
+        }
+        if (number_of_moves == 0) {
+            if (color == Color.WHITE) {
+                if (toX.column_number == x.column_number) {
+                    if (toY.row_number == y.row_number + 1) {
+                        if(gb.getField(toX, toY).getaOccupied() == Occupied.UNOCCUPIED) {
+                            return true;
+                        }
+                    }
+                    if (toY.row_number == y.row_number + 2) {
+                        Row row = Row.values()[y.row_number +1 -1];
+                        if(gb.getField(toX, toY).getaOccupied() == Occupied.UNOCCUPIED && gb.getField(toX, row).getaOccupied() == Occupied.UNOCCUPIED) {
+                            return true;
+                        }
+                    }
+                }
+                if (toY.row_number == y.row_number +1 && (toX.column_number == x.column_number -1 || toX.column_number == x.column_number +1)) {
+                    if (gb.getPiece(toX, toY) != null) {
+                        if (gb.getPiece(toX, toY).getColor() == Color.BLACK) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            if (color == Color.BLACK) {
+                if (toX.column_number == x.column_number) {
+                    if (toY.row_number == y.row_number - 1) {
+                        if(gb.getField(toX, toY).getaOccupied() == Occupied.UNOCCUPIED) {
+                            return true;
+                        }
+                    }
+                    if (toY.row_number == y.row_number - 2) {
+                        Row row = Row.values()[y.row_number -1 -1];
+                        if(gb.getField(toX, toY).getaOccupied() == Occupied.UNOCCUPIED && gb.getField(toX, row).getaOccupied() == Occupied.UNOCCUPIED) {
+                            return true;
+                        }
+                    }
+                }
+                if (toY.row_number == y.row_number -1 && (toX.column_number == x.column_number -1 || toX.column_number == x.column_number +1)) {
+                    if (gb.getPiece(toX, toY) != null) {
+                        if (gb.getPiece(toX, toY).getColor() == Color.WHITE) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        } else {
+            if (color == Color.WHITE) {
+                if (toX.column_number == x.column_number) {
+                    if (toY.row_number == y.row_number + 1) {
+                        if (gb.getField(toX, toY).getaOccupied() == Occupied.UNOCCUPIED) {
+                            return true;
+                        }
+                    }
+                }
+                if (toY.row_number == y.row_number +1 && (toX.column_number == x.column_number -1 || toX.column_number == x.column_number +1)) {
+                    if (gb.getPiece(toX, toY) != null) {
+                        if (gb.getPiece(toX, toY).getColor() == Color.BLACK) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            if (color == Color.BLACK) {
+                if (toX.column_number == x.column_number) {
+                    if (toY.row_number == y.row_number - 1) {
+                        if (gb.getField(toX, toY).getaOccupied() == Occupied.UNOCCUPIED) {
+                            return true;
+                        }
+                    }
+                }
+                if (toY.row_number == y.row_number - 1 && (toX.column_number == x.column_number - 1 || toX.column_number == x.column_number + 1)) {
+                    if (gb.getPiece(toX, toY) != null) {
+                        if (gb.getPiece(toX, toY).getColor() == Color.WHITE) {
+                            return true;
+                        }
+                    }
+                }
+
+            }
+        }
+        return false;
+    }
 }

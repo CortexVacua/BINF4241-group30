@@ -23,7 +23,7 @@ public class Bishop extends Piece {
         if (Math.abs(toX.column_number - x.column_number) == Math.abs(toY.row_number - y.row_number)) {
             int vertical_distance = toY.row_number - y.row_number;
             int horizontal_distance = toX.column_number - x.column_number;
-            if (Math.abs(vertical_distance) >= 2) {
+//            if (Math.abs(vertical_distance) >= 2) {
                 if (horizontal_distance > 0) {
                     if (vertical_distance > 0) {
                         for (int i = 1; i < vertical_distance; i++) {
@@ -64,7 +64,60 @@ public class Bishop extends Piece {
                         }
                     }
                 }
-            }
+//            }
+            return true;
+        }
+        return false;
+    }
+    public boolean isValidForKing(Gameboard gb, Column toX, Row toY) {
+        if (!super.isValidForKing(gb, toX, toY)) {
+            return false;
+        }
+        if (Math.abs(toX.column_number - x.column_number) == Math.abs(toY.row_number - y.row_number)) {
+            int vertical_distance = toY.row_number - y.row_number;
+            int horizontal_distance = toX.column_number - x.column_number;
+//            if (Math.abs(vertical_distance) >= 2) {
+                if (horizontal_distance > 0) {
+                    if (vertical_distance > 0) {
+                        for (int i = 1; i < vertical_distance; i++) {
+                            Row row = Row.values()[y.row_number + i - 1];
+                            Column column = Column.values()[x.column_number + i - 1];
+                            if (gb.getField(column, row).getaOccupied() == Occupied.OCCUPIED) {
+                                return false;
+                            }
+                        }
+                    }
+                    if (vertical_distance < 0) {
+                        for (int i = 1; i < Math.abs(vertical_distance); i++) {
+                            Row row = Row.values()[y.row_number - i - 1];
+                            Column column = Column.values()[x.column_number + i - 1];
+                            if (gb.getField(column, row).getaOccupied() == Occupied.OCCUPIED) {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                if (horizontal_distance < 0) {
+                    if (vertical_distance > 0) {
+                        for (int i = 1; i < vertical_distance; i++) {
+                            Row row = Row.values()[y.row_number + i - 1];
+                            Column column = Column.values()[x.column_number - i - 1];
+                            if (gb.getField(column, row).getaOccupied() == Occupied.OCCUPIED) {
+                                return false;
+                            }
+                        }
+                    }
+                    if (vertical_distance < 0) {
+                        for (int i = 1; i < Math.abs(vertical_distance); i++) {
+                            Row row = Row.values()[y.row_number - i - 1];
+                            Column column = Column.values()[x.column_number - i - 1];
+                            if (gb.getField(column, row).getaOccupied() == Occupied.OCCUPIED) {
+                                return false;
+                            }
+                        }
+                    }
+                }
+//            }
             return true;
         }
         return false;

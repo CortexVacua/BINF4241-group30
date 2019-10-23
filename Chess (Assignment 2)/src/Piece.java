@@ -56,6 +56,20 @@ public class Piece {
         }
         return toX.column_number != x.column_number || toY.row_number != y.row_number;
     }
+    public boolean isValidForKing(Gameboard gb, Column toX, Row toY) {
+        if(toX.column_number > 8 || toY.row_number > 8 || toX.column_number < 1 || toY.row_number < 1) {
+            return false;
+        }
+//        if(gb.getPiece(toX, toY) instanceof King) {
+//            return false;
+//        }
+        if(gb.getPiece(toX, toY) != null) {
+            if(gb.getPiece(toX, toY).getColor() == color) {
+                return false;
+            }
+        }
+        return toX.column_number != x.column_number || toY.row_number != y.row_number;
+    }
 
     public Color getColor() {
         return color;
