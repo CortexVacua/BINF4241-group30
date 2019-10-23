@@ -7,6 +7,13 @@ public class Knight extends Piece {
         this.color=pColor;
         this.number_of_moves=0;
     }
+    public Knight(Knight k) {
+        super();
+        this.y = k.getRow();
+        this.x = k.getColumn();
+        this.color = k.getColor();
+        this.number_of_moves = k.getNumber_of_moves();
+    }
 
     // Checks whether the piece is allowed to do this kind of move; capture of potential pieces has to be checked by game class.
     public boolean isValid(Gameboard gb, Column toX, Row toY) {

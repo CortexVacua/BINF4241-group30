@@ -58,6 +58,33 @@ public class Gameboard {
         Pieces.add(new Bishop(Row.ONE,Column.F, Color.WHITE));
 
     }
+    public Gameboard(Gameboard gb) {
+        this.Fields = new ArrayList<>();
+        for(Field field : gb.getFields()) {
+            this.Fields.add(new Field(field));
+        }
+        this.Pieces = new ArrayList<>();
+        for(Piece piece : gb.getPieces()) {
+            if (piece instanceof Pawn) {
+                this.Pieces.add(new Pawn((Pawn) piece));
+            }
+            if (piece instanceof Bishop) {
+                this.Pieces.add(new Bishop((Bishop) piece));
+            }
+            if (piece instanceof Knight) {
+                this.Pieces.add(new Knight((Knight) piece));
+            }
+            if (piece instanceof Rook) {
+                this.Pieces.add(new Rook((Rook) piece));
+            }
+            if (piece instanceof King) {
+                this.Pieces.add(new King((King) piece));
+            }
+            if (piece instanceof Queen) {
+                this.Pieces.add(new Queen((Queen) piece));
+            }
+        }
+    }
 
     public Field getField(Column x, Row y) {
         Field init_field = null;
@@ -84,4 +111,6 @@ public class Gameboard {
     public List<Piece> getPieces() {
         return Pieces;
     }
+
+    public List<Field> getFields() { return Fields; }
 }

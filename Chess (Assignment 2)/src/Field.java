@@ -10,6 +10,12 @@ public class Field {
         aColumn = pColumn;
         aOccupied=pOccupied;
     }
+    public Field(Field f) {
+        this.aColor = f.getaColor();
+        this.aRow = f.getaRow();
+        this.aColumn = f.getaColumn();
+        this.aOccupied = f.getaOccupied();
+    }
 
     public void occupy () {
         this.aOccupied = Occupied.OCCUPIED;
