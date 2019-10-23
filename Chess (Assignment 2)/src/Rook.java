@@ -15,49 +15,49 @@ public class Rook extends Piece {
         }
         if (toX.column_number == x.column_number) {
             int distance = toY.row_number - y.row_number;
-            if (Math.abs(distance) >= 2) {
-                if (distance > 0) {
-                    for (int i = 1; i < distance; i++) {
-                        Row row = Row.values()[y.row_number + i - 1];
-                        if (gb.getField(x, row).getaOccupied() == Occupied.OCCUPIED) {
-                            return false;
-                        }
+//            if (Math.abs(distance) >= 2) {
+            if (distance > 0) {
+                for (int i = 1; i < distance; i++) {
+                    Row row = Row.values()[y.row_number + i - 1];
+                    if (gb.getField(x, row).getaOccupied() == Occupied.OCCUPIED) {
+                        return false;
                     }
-                    return true;
                 }
-                if (distance < 0) {
-                    for (int i = 1; i < Math.abs(distance); i++) {
-                        Row row = Row.values()[y.row_number - i - 1];
-                        if (gb.getField(x, row).getaOccupied() == Occupied.OCCUPIED) {
-                            return false;
-                        }
+                return true;
+            }
+            if (distance < 0) {
+                for (int i = 1; i < Math.abs(distance); i++) {
+                    Row row = Row.values()[y.row_number - i - 1];
+                    if (gb.getField(x, row).getaOccupied() == Occupied.OCCUPIED) {
+                        return false;
                     }
-                    return true;
                 }
+                return true;
+//                }
             }
         }
         if (toY.row_number == y.row_number) {
             int distance = toX.column_number - x.column_number;
-            if (Math.abs(distance) >= 2) {
-                if (distance > 0) {
-                    for (int i = 1; i < distance; i++) {
-                        Column column = Column.values()[x.column_number + i - 1];
-                        if (gb.getField(column, y).getaOccupied() == Occupied.OCCUPIED) {
-                            return false;
-                        }
+//            if (Math.abs(distance) >= 2) {
+            if (distance > 0) {
+                for (int i = 1; i < distance; i++) {
+                    Column column = Column.values()[x.column_number + i - 1];
+                    if (gb.getField(column, y).getaOccupied() == Occupied.OCCUPIED) {
+                        return false;
                     }
-                    return true;
                 }
-                if (distance < 0) {
-                    for (int i = 1; i < Math.abs(distance); i++) {
-                        Column column = Column.values()[x.column_number - i - 1];
-                        if (gb.getField(column, y).getaOccupied() == Occupied.OCCUPIED) {
-                            return false;
-                        }
-                    }
-                    return true;
-                }
+                return true;
             }
+            if (distance < 0) {
+                for (int i = 1; i < Math.abs(distance); i++) {
+                    Column column = Column.values()[x.column_number - i - 1];
+                    if (gb.getField(column, y).getaOccupied() == Occupied.OCCUPIED) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+//            }
         }
         return false;
     }
