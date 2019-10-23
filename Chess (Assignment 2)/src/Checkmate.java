@@ -59,7 +59,7 @@ public class Checkmate {
                     System.out.print("Check! Someone can kill Attacker! "); return false;}
             }
         }
-        else if (att_pieces.get(0) instanceof Knight) return true;
+        if (att_pieces.get(0) instanceof Knight) return true;
         else {
             System.out.print("last case reached");
 //          gets the stats of the defender's king again
