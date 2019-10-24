@@ -55,6 +55,6 @@ e.g. bxa3e.p. (=a3 is the field on which the figure will land and not the field 
 
 ---
 
-Castling has to be specified with 0-0 (small one) or 0-0-0 respectively (big one):
+For Castling we use the Zero-Notation instead of the O-Notation. It has to be specified with 0-0 (small one) or 0-0-0 respectively (big one):
 
 e.g. 0-0 (=small castling)
