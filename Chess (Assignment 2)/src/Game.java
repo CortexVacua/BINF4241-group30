@@ -29,7 +29,14 @@ public class Game {
 
         while (!GameOver) {
             Player current_player = PlayerQueue.remove();
+            Player next_player = PlayerQueue.remove();
             printer.board_state(gb1.Fields, gb1.Pieces);
+            Checkmate cm = new Checkmate();
+            if (cm.checkmate(gb1, next_player)) {
+                GameOver=true;
+                break;
+            }
+            PlayerQueue.add(next_player);
             boolean notation_is_valid = false;
             boolean input_legal = false;
 
@@ -286,11 +293,6 @@ public class Game {
                     gb1.Pieces.add(new Queen(Row.ONE,c, Color.BLACK));
                 }
 
-            }
-            Checkmate cm = new Checkmate();
-            if (cm.checkmate(gb1, current_player)) {
-                GameOver=true;
-                System.out.println("Congratulations, "+current_player.getName()+"has won the game by checkmate");
             }
 
         }
