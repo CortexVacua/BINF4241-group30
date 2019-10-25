@@ -54,69 +54,48 @@ public class Game {
 
 //              check if move is legal
 
-//                Castling
-                else if(move_str.equals("0-0")){
-                    if (current_player.getColor()==Color.BLACK){
-                        for(int i=0; i<gb1.Pieces.size(); i++){
-                            if (gb1.Pieces.get(i) instanceof King && gb1.Pieces.get(i).getNumber_of_moves()==0
-                            && gb1.Pieces.get(i).getColor()==Color.BLACK){
-                                for(int j=0; j<gb1.Pieces.size(); j++){
-                                    if (gb1.Pieces.get(j) instanceof Rook && gb1.Pieces.get(j).getColumn() == Column.H
-                                    && gb1.Pieces.get(j).getColor() == Color.BLACK && gb1.Pieces.get(j).getNumber_of_moves() == 0){
-                                        if (gb1.Fields.get(61).getaOccupied() == Occupied.UNOCCUPIED &&
-                                                gb1.Fields.get(62).getaOccupied() == Occupied.UNOCCUPIED){
-                                            gb1.Pieces.get(i).setPosition(Column.G,Row.EIGHT);
-                                            gb1.Pieces.get(j).setPosition(Column.F,Row.EIGHT);
-                                            gb1.Fields.get(60).unoccupy();
-                                            gb1.Fields.get(63).unoccupy();
-                                            gb1.Fields.get(61).occupy();
-                                            gb1.Fields.get(62).occupy();
-                                            input_legal=true;
-                                        }
-                                    }
+//              Castling
+                else if (move_str.equals("0-0")) {
+                    if (current_player.getColor() == Color.BLACK) {
+                        for (Piece piece : gb1.getPieces()) {
+                            if (piece instanceof King && piece.getColor() == Color.BLACK) {
+                                if (((King) piece).isShortCastlingValid(gb1)) {
+                                    piece.setPosition(Column.G, Row.EIGHT);
+                                    gb1.getPiece(Column.H, Row.EIGHT).setPosition(Column.F, Row.EIGHT);
+                                    gb1.Fields.get(60).unoccupy();
+                                    gb1.Fields.get(63).unoccupy();
+                                    gb1.Fields.get(61).occupy();
+                                    gb1.Fields.get(62).occupy();
+                                    input_legal = true;
+                                }
+                            }
+                        }
+                    } else if (current_player.getColor() == Color.WHITE) {
+                        for (Piece piece : gb1.getPieces()) {
+                            if (piece instanceof King && piece.getColor() == Color.WHITE) {
+                                if (((King) piece).isShortCastlingValid(gb1)) {
+                                    piece.setPosition(Column.G, Row.ONE);
+                                    gb1.getPiece(Column.H, Row.ONE).setPosition(Column.F, Row.ONE);
+                                    gb1.Fields.get(4).unoccupy();
+                                    gb1.Fields.get(7).unoccupy();
+                                    gb1.Fields.get(5).occupy();
+                                    gb1.Fields.get(6).occupy();
+                                    input_legal = true;
                                 }
                             }
                         }
                     }
 
-                    else if (current_player.getColor()==Color.WHITE){
-                        for(int i=0; i<gb1.Pieces.size(); i++){
-                            if (gb1.Pieces.get(i) instanceof King && gb1.Pieces.get(i).getNumber_of_moves()==0
-                                    && gb1.Pieces.get(i).getColor()==Color.WHITE){
-                                for(int j=0; j<gb1.Pieces.size(); j++){
-                                    if (gb1.Pieces.get(j) instanceof Rook && gb1.Pieces.get(j).getColumn() == Column.H
-                                            && gb1.Pieces.get(j).getColor() == Color.WHITE && gb1.Pieces.get(j).getNumber_of_moves() == 0){
-                                        if (gb1.Fields.get(5).getaOccupied() == Occupied.UNOCCUPIED &&
-                                                gb1.Fields.get(6).getaOccupied() == Occupied.UNOCCUPIED){
-                                            gb1.Pieces.get(i).setPosition(Column.G,Row.ONE);
-                                            gb1.Pieces.get(j).setPosition(Column.F,Row.ONE);
-                                            gb1.Fields.get(4).unoccupy();
-                                            gb1.Fields.get(7).unoccupy();
-                                            gb1.Fields.get(5).occupy();
-                                            gb1.Fields.get(6).occupy();
-                                            input_legal=true;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
                     if (input_legal==false) System.out.println("Castling illegal in given situation");
                 }
 
                 else if(move_str.equals("0-0-0")){
                     if (current_player.getColor()==Color.BLACK){
-                        for(int i=0; i<gb1.Pieces.size(); i++){
-                            if (gb1.Pieces.get(i) instanceof King && gb1.Pieces.get(i).getNumber_of_moves()==0
-                                    && gb1.Pieces.get(i).getColor()==Color.BLACK){
-                                for(int j=0; j<gb1.Pieces.size(); j++){
-                                    if (gb1.Pieces.get(j) instanceof Rook && gb1.Pieces.get(j).getColumn() == Column.A
-                                            && gb1.Pieces.get(j).getColor() == Color.BLACK && gb1.Pieces.get(j).getNumber_of_moves() == 0){
-                                        if (gb1.Fields.get(59).getaOccupied() == Occupied.UNOCCUPIED &&
-                                                gb1.Fields.get(58).getaOccupied() == Occupied.UNOCCUPIED &&
-                                                gb1.Fields.get(57).getaOccupied() == Occupied.UNOCCUPIED){
-                                            gb1.Pieces.get(i).setPosition(Column.C,Row.EIGHT);
-                                            gb1.Pieces.get(j).setPosition(Column.D,Row.EIGHT);
+                        for (Piece piece : gb1.getPieces()) {
+                            if (piece instanceof King && piece.getColor() == Color.BLACK) {
+                                if (((King) piece).isLongCastlingValid(gb1)) {
+                                            piece.setPosition(Column.C, Row.EIGHT);
+                                            gb1.getPiece(Column.A, Row.EIGHT).setPosition(Column.D, Row.EIGHT);
                                             gb1.Fields.get(56).unoccupy();
                                             gb1.Fields.get(60).unoccupy();
                                             gb1.Fields.get(58).occupy();
@@ -126,21 +105,13 @@ public class Game {
                                     }
                                 }
                             }
-                        }
-                    }
 
                     else if (current_player.getColor()==Color.WHITE){
-                        for(int i=0; i<gb1.Pieces.size(); i++){
-                            if (gb1.Pieces.get(i) instanceof King && gb1.Pieces.get(i).getNumber_of_moves()==0
-                                    && gb1.Pieces.get(i).getColor()==Color.WHITE){
-                                for(int j=0; j<gb1.Pieces.size(); j++){
-                                    if (gb1.Pieces.get(j) instanceof Rook && gb1.Pieces.get(j).getColumn() == Column.A
-                                            && gb1.Pieces.get(j).getColor() == Color.WHITE && gb1.Pieces.get(j).getNumber_of_moves() == 0){
-                                        if (gb1.Fields.get(1).getaOccupied() == Occupied.UNOCCUPIED &&
-                                                gb1.Fields.get(2).getaOccupied() == Occupied.UNOCCUPIED &&
-                                                gb1.Fields.get(3).getaOccupied() == Occupied.UNOCCUPIED){
-                                            gb1.Pieces.get(i).setPosition(Column.C,Row.ONE);
-                                            gb1.Pieces.get(j).setPosition(Column.D,Row.ONE);
+                        for (Piece piece : gb1.getPieces()) {
+                            if (piece instanceof King && piece.getColor() == Color.WHITE) {
+                                if (((King) piece).isLongCastlingValid(gb1)) {
+                                            piece.setPosition(Column.C, Row.ONE);
+                                            gb1.getPiece(Column.A, Row.ONE).setPosition(Column.D, Row.ONE);
                                             gb1.Fields.get(0).unoccupy();
                                             gb1.Fields.get(4).unoccupy();
                                             gb1.Fields.get(2).occupy();
@@ -150,8 +121,6 @@ public class Game {
                                     }
                                 }
                             }
-                        }
-                    }
                     if (input_legal==false) System.out.println("Castling illegal in given situation");
                 }
 
@@ -231,8 +200,8 @@ public class Game {
 
                     if (enemy_piece_on_field && !move_str.contains("x")) System.out.println("You are attacking a figure without having declared a capture. " +
                             "\nPlease check your algebraic notation.\n");
-                    else if (possible_pieces ==0) System.out.println("Could not find "+what_figure+" that can move to desired field.");
-                    else if (possible_pieces>1)  System.out.println("Too many "+what_figure+"s can move to the desired field, please specify further.");
+                    else if (possible_pieces ==0) System.out.println("Could not find "+what_figure.toString().substring(6)+" that can move to desired field.");
+                    else if (possible_pieces>1)  System.out.println("Too many "+what_figure.toString().substring(6)+"s can move to the desired field, please specify further.");
 
 //                   if move is legal, completes the move
                     else {
@@ -282,15 +251,62 @@ public class Game {
 
 //          Initialize Promotion
             for (int i = 0 ; i<gb1.Pieces.size() ; i++){
-                if ( gb1.Pieces.get(i) instanceof Pawn && gb1.Pieces.get(i).getRow() == Row.EIGHT){
+                if (gb1.Pieces.get(i) instanceof Pawn && gb1.Pieces.get(i).getRow() == Row.EIGHT){
+                    Scanner scanner = new Scanner(System.in);
+                    String promotion = "0";
+                    System.out.println("Specify the figure you wish to promote to:");
                     Column c = gb1.Pieces.get(i).getColumn();
                     gb1.Pieces.remove(gb1.Pieces.get(i));
-                    gb1.Pieces.add(new Queen(Row.EIGHT,c, Color.WHITE));
+                    while (true) {
+                        promotion = scanner.nextLine();
+                        if (promotion.equals("N")) {
+                            gb1.Pieces.add(new Knight(Row.EIGHT,c, Color.WHITE));
+                            break;
+                        }
+                        if (promotion.equals("Q")) {
+                            gb1.Pieces.add(new Queen(Row.EIGHT,c, Color.WHITE));
+                            break;
+                        }
+                        if (promotion.equals("R")) {
+                            gb1.Pieces.add(new Rook(Row.EIGHT,c, Color.WHITE));
+                            break;
+                        }
+                        if (promotion.equals("B")) {
+                            gb1.Pieces.add(new Bishop(Row.EIGHT,c, Color.WHITE));
+                            break;
+                        }
+                        System.out.println("Please check your notation!");
+                        System.out.println("Specify the figure you wish to promote to:");
+                    }
+
                 }
-                else if ( gb1.Pieces.get(i) instanceof Pawn && gb1.Pieces.get(i).getRow() == Row.ONE){
+                else if (gb1.Pieces.get(i) instanceof Pawn && gb1.Pieces.get(i).getRow() == Row.ONE){
+                    Scanner scanner = new Scanner(System.in);
+                    String promotion = "0";
+                    System.out.println("Specify the figure you wish to promote to:");
                     Column c = gb1.Pieces.get(i).getColumn();
                     gb1.Pieces.remove(gb1.Pieces.get(i));
-                    gb1.Pieces.add(new Queen(Row.ONE,c, Color.BLACK));
+                    while (true) {
+                        promotion = scanner.nextLine();
+                        if (promotion.equals("N")) {
+                            gb1.Pieces.add(new Knight(Row.ONE,c, Color.BLACK));
+                            break;
+                        }
+                        if (promotion.equals("Q")) {
+                            gb1.Pieces.add(new Queen(Row.ONE,c, Color.BLACK));
+                            break;
+                        }
+                        if (promotion.equals("R")) {
+                            gb1.Pieces.add(new Rook(Row.ONE,c, Color.BLACK));
+                            break;
+                        }
+                        if (promotion.equals("B")) {
+                            gb1.Pieces.add(new Bishop(Row.ONE,c, Color.BLACK));
+                            break;
+                        }
+                        System.out.println("Please check your notation!");
+                        System.out.println("Specify the figure you wish to promote to:");
+                    }
                 }
 
             }

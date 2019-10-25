@@ -7,6 +7,13 @@ public class Rook extends Piece {
         this.color = pColor;
         this.number_of_moves = 0;
     }
+    public Rook(Rook r) {
+        super();
+        this.y = r.getRow();
+        this.x = r.getColumn();
+        this.color = r.getColor();
+        this.number_of_moves = r.getNumber_of_moves();
+    }
 
     // Checks whether the piece is allowed to do this kind of move; capture of potential pieces has to be checked by game class.
     public boolean isValid(Gameboard gb, Column toX, Row toY) {

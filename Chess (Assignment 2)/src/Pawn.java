@@ -7,6 +7,13 @@ public class Pawn extends Piece {
         this.color=pColor;
         this.number_of_moves=0;
     }
+    public Pawn(Pawn p) {
+        super();
+        this.y = p.getRow();
+        this.x = p.getColumn();
+        this.color = p.getColor();
+        this.number_of_moves = p.getNumber_of_moves();
+    }
 
     // Checks whether the piece is allowed to do this kind of move; capture of potential pieces has to be checked by game class.
     //TODO: promotion

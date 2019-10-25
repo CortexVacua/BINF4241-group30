@@ -7,6 +7,13 @@ public class Queen extends Piece {
         this.color=pColor;
         this.number_of_moves=0;
     }
+    public Queen (Queen q) {
+        super();
+        this.y = q.getRow();
+        this.x = q.getColumn();
+        this.color = q.getColor();
+        this.number_of_moves = q.getNumber_of_moves();
+    }
 
     // Checks whether the piece is allowed to do this kind of move; capture of potential pieces has to be checked by game class.
     public boolean isValid(Gameboard gb, Column toX, Row toY) {
