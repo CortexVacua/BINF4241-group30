@@ -21,9 +21,6 @@ public class Piece {
         if(toX.column_number > 8 || toY.row_number > 8 || toX.column_number < 1 || toY.row_number < 1) {
             return false;
         }
-//        if(gb.getPiece(toX, toY) instanceof King) {
-//            return false;
-//        }
         if(gb.getPiece(toX, toY) != null) {
             if(gb.getPiece(toX, toY).getColor() == color) {
                 return false;
@@ -49,7 +46,6 @@ public class Piece {
         for (int l = 0; l < gb2.getPieces().size(); l++) {
             if (gb2.getPieces().get(l).getColor() == color && gb2.getPieces().get(l) instanceof King) {
                 if (gb2.getPieces().get(l).checkIfChecked(gb2)) {
-//                              System.out.println("You are making a move that puts or leaves your king in check. ");
                     return false;
                 }
             }

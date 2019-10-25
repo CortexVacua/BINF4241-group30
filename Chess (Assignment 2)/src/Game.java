@@ -54,7 +54,7 @@ public class Game {
 
 //              check if move is legal
 
-//                Castling
+//              Castling
                 else if (move_str.equals("0-0")) {
                     if (current_player.getColor() == Color.BLACK) {
                         for (Piece piece : gb1.getPieces()) {
