@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b4763de-061e-4e6a-81de-0f5ba07e5e1f" name="Default Changelist" comment="Changed the method isValid of Piece &amp; its subclasses to include the Gameboard object; added checks if move is blocked by other pieces into Bishop, Queen &amp; Rook classes; added getField &amp; getPiece methods into Gameboard">
+    <list default="true" id="8b4763de-061e-4e6a-81de-0f5ba07e5e1f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess (Assignment 2)/src/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chess (Assignment 2)/src/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess (Assignment 2)/src/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chess (Assignment 2)/src/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess (Assignment 2)/src/Gameboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chess (Assignment 2)/src/Gameboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess (Assignment 2)/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chess (Assignment 2)/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess (Assignment 2)/src/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chess (Assignment 2)/src/King.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess (Assignment 2)/src/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chess (Assignment 2)/src/Knight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess (Assignment 2)/src/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chess (Assignment 2)/src/Pawn.java" afterDir="false" />
@@ -101,8 +100,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.mainClass" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.mainClass" />
         <item itemvalue="Application.Gameboard" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.mainClass" />
@@ -126,6 +125,7 @@
       <workItem from="1571570381179" duration="6715000" />
       <workItem from="1571828953084" duration="1702000" />
       <workItem from="1571831968703" duration="13441000" />
+      <workItem from="1571999282323" duration="10403000" />
     </task>
     <task id="LOCAL-00001" summary="Creation of my test branch">
       <created>1570281613601</created>
@@ -253,7 +253,21 @@
       <option name="project" value="LOCAL" />
       <updated>1571839655945</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixed the isValid method in Piece and resolved dependencies">
+      <created>1571864114179</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1571864114179</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fixed the isValid method in Piece">
+      <created>1571870861358</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1571870861358</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,6 +315,8 @@
     <MESSAGE value="Refixed isValid in Queen and Rook" />
     <MESSAGE value="Changed Castling process in Game to use King's methods" />
     <MESSAGE value="Changed the method isValid of Piece &amp; its subclasses to include the Gameboard object; added checks if move is blocked by other pieces into Bishop, Queen &amp; Rook classes; added getField &amp; getPiece methods into Gameboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the method isValid of Piece &amp; its subclasses to include the Gameboard object; added checks if move is blocked by other pieces into Bishop, Queen &amp; Rook classes; added getField &amp; getPiece methods into Gameboard" />
+    <MESSAGE value="Fixed the isValid method in Piece and resolved dependencies" />
+    <MESSAGE value="Fixed the isValid method in Piece" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the isValid method in Piece" />
   </component>
 </project>

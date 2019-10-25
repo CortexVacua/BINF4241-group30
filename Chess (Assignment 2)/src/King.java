@@ -33,30 +33,11 @@ public class King extends Piece {
 
         return false;
     }
-
-    public boolean isValidForKing(Gameboard gb, Column toX, Row toY) {
-        if (!super.isValidForKing(gb, toX, toY)) {
-            return false;
-        }
-        if (toX.column_number == x.column_number - 1 || toX.column_number == x.column_number + 1) {
-            if (toY.row_number == y.row_number - 1 || toY.row_number == y.row_number || toY.row_number == y.row_number + 1) {
-                return true;
-            }
-        }
-        if (toX.column_number == x.column_number) {
-            if (toY.row_number == y.row_number - 1 || toY.row_number == y.row_number + 1) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     //checks if this king is under check; returns true if this king is under check
     public boolean checkIfChecked(Gameboard gb) {
         for (Piece piece : gb.getPieces()) {
             if (piece.getColor() != color) {
-                if (piece.isValidForKing(gb, x, y)) {
+                if (piece.isValid(gb, x, y)) {
                     return true;
                 }
             }

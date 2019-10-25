@@ -40,28 +40,4 @@ public class Knight extends Piece {
         }
         return true;
     }
-    public boolean isValidForKing(Gameboard gb, Column toX, Row toY) {
-        if (!super.isValidForKing(gb, toX, toY)) {
-            return false;
-        }
-        if (toX.column_number != x.column_number - 1 && toX.column_number != x.column_number + 1 && toX.column_number != x.column_number + 2 && toX.column_number != x.column_number - 2) {
-            return false;
-        }
-        if (toY.row_number != y.row_number - 2 && toY.row_number != y.row_number + 2 && toY.row_number != y.row_number - 1 && toY.row_number != y.row_number + 1) {
-            return false;
-        }
-        if ((toX.column_number - 1 == x.column_number && toY.row_number - 1 == y.row_number) || (toX.column_number - 2 == x.column_number && toY.row_number - 2 == y.row_number)) {
-            return false;
-        }
-        if ((toX.column_number + 1 == x.column_number && toY.row_number + 1 == y.row_number) || (toX.column_number + 2 == x.column_number && toY.row_number + 2 == y.row_number)) {
-            return false;
-        }
-        if ((toX.column_number - 1 == x.column_number && toY.row_number + 1 == y.row_number) || (toX.column_number - 2 == x.column_number && toY.row_number + 2 == y.row_number)) {
-            return false;
-        }
-        if ((toX.column_number + 1 == x.column_number && toY.row_number - 1 == y.row_number) || (toX.column_number + 2 == x.column_number && toY.row_number - 2 == y.row_number)) {
-            return false;
-        }
-        return true;
-    }
 }

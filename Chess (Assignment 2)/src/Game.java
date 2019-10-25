@@ -200,8 +200,8 @@ public class Game {
 
                     if (enemy_piece_on_field && !move_str.contains("x")) System.out.println("You are attacking a figure without having declared a capture. " +
                             "\nPlease check your algebraic notation.\n");
-                    else if (possible_pieces ==0) System.out.println("Could not find "+what_figure+" that can move to desired field.");
-                    else if (possible_pieces>1)  System.out.println("Too many "+what_figure+"s can move to the desired field, please specify further.");
+                    else if (possible_pieces ==0) System.out.println("Could not find "+what_figure.toString().substring(6)+" that can move to desired field.");
+                    else if (possible_pieces>1)  System.out.println("Too many "+what_figure.toString().substring(6)+"s can move to the desired field, please specify further.");
 
 //                   if move is legal, completes the move
                     else {
@@ -251,15 +251,62 @@ public class Game {
 
 //          Initialize Promotion
             for (int i = 0 ; i<gb1.Pieces.size() ; i++){
-                if ( gb1.Pieces.get(i) instanceof Pawn && gb1.Pieces.get(i).getRow() == Row.EIGHT){
+                if (gb1.Pieces.get(i) instanceof Pawn && gb1.Pieces.get(i).getRow() == Row.EIGHT){
+                    Scanner scanner = new Scanner(System.in);
+                    String promotion = "0";
+                    System.out.println("Specify the figure you wish to promote to:");
                     Column c = gb1.Pieces.get(i).getColumn();
                     gb1.Pieces.remove(gb1.Pieces.get(i));
-                    gb1.Pieces.add(new Queen(Row.EIGHT,c, Color.WHITE));
+                    while (true) {
+                        promotion = scanner.nextLine();
+                        if (promotion.equals("N")) {
+                            gb1.Pieces.add(new Knight(Row.EIGHT,c, Color.WHITE));
+                            break;
+                        }
+                        if (promotion.equals("Q")) {
+                            gb1.Pieces.add(new Queen(Row.EIGHT,c, Color.WHITE));
+                            break;
+                        }
+                        if (promotion.equals("R")) {
+                            gb1.Pieces.add(new Rook(Row.EIGHT,c, Color.WHITE));
+                            break;
+                        }
+                        if (promotion.equals("B")) {
+                            gb1.Pieces.add(new Bishop(Row.EIGHT,c, Color.WHITE));
+                            break;
+                        }
+                        System.out.println("Please check your notation!");
+                        System.out.println("Specify the figure you wish to promote to:");
+                    }
+
                 }
-                else if ( gb1.Pieces.get(i) instanceof Pawn && gb1.Pieces.get(i).getRow() == Row.ONE){
+                else if (gb1.Pieces.get(i) instanceof Pawn && gb1.Pieces.get(i).getRow() == Row.ONE){
+                    Scanner scanner = new Scanner(System.in);
+                    String promotion = "0";
+                    System.out.println("Specify the figure you wish to promote to:");
                     Column c = gb1.Pieces.get(i).getColumn();
                     gb1.Pieces.remove(gb1.Pieces.get(i));
-                    gb1.Pieces.add(new Queen(Row.ONE,c, Color.BLACK));
+                    while (true) {
+                        promotion = scanner.nextLine();
+                        if (promotion.equals("N")) {
+                            gb1.Pieces.add(new Knight(Row.ONE,c, Color.BLACK));
+                            break;
+                        }
+                        if (promotion.equals("Q")) {
+                            gb1.Pieces.add(new Queen(Row.ONE,c, Color.BLACK));
+                            break;
+                        }
+                        if (promotion.equals("R")) {
+                            gb1.Pieces.add(new Rook(Row.ONE,c, Color.BLACK));
+                            break;
+                        }
+                        if (promotion.equals("B")) {
+                            gb1.Pieces.add(new Bishop(Row.ONE,c, Color.BLACK));
+                            break;
+                        }
+                        System.out.println("Please check your notation!");
+                        System.out.println("Specify the figure you wish to promote to:");
+                    }
                 }
 
             }
