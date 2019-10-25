@@ -58,3 +58,7 @@ e.g. bxa3e.p. (=a3 is the field on which the figure will land and not the field 
 For Castling we use the Zero-Notation instead of the O-Notation. It has to be specified with 0-0 (small one) or 0-0-0 respectively (big one):
 
 e.g. 0-0 (=small castling)
+
+---
+
+Our design consists of 15 classes and 4 enums. The figures are split up into the 6 piece classes that all inherit from piece. In order to make a move, Game class runs the isValid method of the piece which the player wants to move, and if it returns true, the move is made. The Checkmate class then checks if the game is over, and if not, a new move begins. The game can be started by running Game class.
