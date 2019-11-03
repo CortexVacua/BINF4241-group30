@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Printer {
 
-    public void board_state(List<Field> Fields,List<Piece> Pieces){
+    public void board_state(List<Field> Fields,List<Piece> Pieces, String player_name_1, String player_name_2, ScoreBoard sb){
         System.out.println("\n");
         int row_number = 8;
         for (int r=0 ; r<Fields.size()/8 ; r++){
@@ -33,5 +33,7 @@ public class Printer {
             System.out.print("\n");
         }
         System.out.println("   A   B   C   D   E   F   G   H \n");
+//        Print out ScoreBoard
+        System.out.println(player_name_1+", score: "+sb.getScores()[0]+"    "+player_name_2+", score: "+sb.getScores()[1]+"\n");
         }
     }

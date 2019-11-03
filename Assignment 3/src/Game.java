@@ -8,6 +8,8 @@ public class Game {
     private List<Row> rows = new ArrayList<>();
 
     public Game() {
+//        initializes ScoreBoard
+        ScoreBoard sb=new ScoreBoard();
 //        initializes Columns and Rows list
         for (Column c : Column.values())
             col.add(c);
@@ -25,12 +27,18 @@ public class Game {
         String name_P2_str = name_P1.nextLine();
         PlayerQueue.add(new Player(Color.WHITE, name_P1_str));
         PlayerQueue.add(new Player(Color.BLACK, name_P2_str));
+//      ScoreBoard subscribes to the players
+        for (int i=0 ; i<2; i++) {
+            Player tempPlayer = PlayerQueue.remove();
+            tempPlayer.registerObserver(sb);
+            PlayerQueue.add(tempPlayer);
+        }
 
 
         while (!GameOver) {
             Player current_player = PlayerQueue.remove();
             Player next_player = PlayerQueue.remove();
-            printer.board_state(gb1.Fields, gb1.Pieces);
+            printer.board_state(gb1.Fields, gb1.Pieces,name_P1_str,name_P2_str,sb);
             Checkmate cm = new Checkmate();
             if (cm.checkmate(gb1, next_player)) {
                 GameOver=true;
