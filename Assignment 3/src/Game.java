@@ -222,18 +222,32 @@ public class Game {
                         }
 //                  removes captured piece from the field
                         if (move_str.length()==8){
-                            rk= rows.get(field_param[1]-2);
-                            for (int i=0; i<=gb1.Pieces.size()-1; i++) {
-                                if (gb1.Pieces.get(i).getRow()== rk && gb1.Pieces.get(i).getColumn()== c && gb1.Pieces.get(i).getColor()!=current_player.getColor()){
-                                    Piece dead_piece=gb1.Pieces.remove(i);
-                                    current_player.add_captures(dead_piece);
-                                    for (Field f: gb1.Fields){
-                                        if (f.getaColumn()==c && f.getaRow() ==rk) f.unoccupy();
+                            if (current_player.getColor()==Color.WHITE) {
+                                rk = rows.get(field_param[1] - 2);
+                                for (int i = 0; i <= gb1.Pieces.size() - 1; i++) {
+                                    if (gb1.Pieces.get(i).getRow() == rk && gb1.Pieces.get(i).getColumn() == c && gb1.Pieces.get(i).getColor() != current_player.getColor()) {
+                                        Piece dead_piece = gb1.Pieces.remove(i);
+                                        current_player.add_captures(dead_piece);
+                                        for (Field f : gb1.Fields) {
+                                            if (f.getaColumn() == c && f.getaRow() == rk) f.unoccupy();
+                                        }
+                                    }
+                                }
+                            }
+                            else if (current_player.getColor()==Color.BLACK){
+                                rk = rows.get(field_param[1]);
+                                for (int i = 0; i <= gb1.Pieces.size() - 1; i++) {
+                                    if (gb1.Pieces.get(i).getRow() == rk && gb1.Pieces.get(i).getColumn() == c && gb1.Pieces.get(i).getColor() != current_player.getColor()) {
+                                        Piece dead_piece = gb1.Pieces.remove(i);
+                                        current_player.add_captures(dead_piece);
+                                        for (Field f : gb1.Fields) {
+                                            if (f.getaColumn() == c && f.getaRow() == rk) f.unoccupy();
+                                        }
                                     }
                                 }
                             }
                         }
-                        if (enemy_piece_on_field){
+                        else if (enemy_piece_on_field){
                             for (int i=0; i<=gb1.Pieces.size()-1; i++) {
                                 if (gb1.Pieces.get(i).getRow()== r && gb1.Pieces.get(i).getColumn()== c && gb1.Pieces.get(i).getColor()!=current_player.getColor()){
                                     Piece dead_piece=gb1.Pieces.remove(i);
