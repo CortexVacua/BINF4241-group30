@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Printer {
 
-    public void board_state(List<Field> Fields,List<Piece> Pieces, String player_name_1, String player_name_2, ScoreBoard sb){
+    public void board_state(List<Field> Fields,List<Piece> Pieces, String player_name_1, String player_name_2, ScoreBoard sb, Graveyard graveyard){
         System.out.println("\n");
         int row_number = 8;
         for (int r=0 ; r<Fields.size()/8 ; r++){
@@ -33,7 +33,30 @@ public class Printer {
             System.out.print("\n");
         }
         System.out.println("   A   B   C   D   E   F   G   H \n");
-//        Print out ScoreBoard
+//        Print out ScoreBoard and Graveyard
+        System.out.print("Current dead white Pieces: ");
+        for (int i=0 ; i<graveyard.getDead_White_Pieces().size() ; i++){
+            System.out.print("W");
+            if (graveyard.getDead_White_Pieces().get(i).getClass() == Pawn.class) System.out.print("P ");
+            if (graveyard.getDead_White_Pieces().get(i).getClass() == King.class) System.out.print("K ");
+            if (graveyard.getDead_White_Pieces().get(i).getClass() == Queen.class) System.out.print("Q ");
+            if (graveyard.getDead_White_Pieces().get(i).getClass() == Bishop.class) System.out.print("B ");
+            if (graveyard.getDead_White_Pieces().get(i).getClass() == Knight.class) System.out.print("K ");
+            if (graveyard.getDead_White_Pieces().get(i).getClass() == Rook.class) System.out.print("R ");
+        }
+        System.out.print("\n");
+        System.out.print("Current dead black Pieces: ");
+        for (int i=0 ; i<graveyard.getDead_Black_Pieces().size() ; i++){
+            System.out.print("B");
+            if (graveyard.getDead_Black_Pieces().get(i).getClass() == Pawn.class) System.out.print("P ");
+            if (graveyard.getDead_Black_Pieces().get(i).getClass() == King.class) System.out.print("K ");
+            if (graveyard.getDead_Black_Pieces().get(i).getClass() == Queen.class) System.out.print("Q ");
+            if (graveyard.getDead_Black_Pieces().get(i).getClass() == Bishop.class) System.out.print("B ");
+            if (graveyard.getDead_Black_Pieces().get(i).getClass() == Knight.class) System.out.print("K ");
+            if (graveyard.getDead_Black_Pieces().get(i).getClass() == Rook.class) System.out.print("R ");
+        }
+        System.out.print("\n");
+
         System.out.println(player_name_1+", score: "+sb.getScores()[0]+"    "+player_name_2+", score: "+sb.getScores()[1]+"\n");
         }
     }

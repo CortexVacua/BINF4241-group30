@@ -10,6 +10,8 @@ public class Game {
     public Game() {
 //        initializes ScoreBoard
         ScoreBoard sb=new ScoreBoard();
+//        initializes Graveyard
+        Graveyard graveyard = new Graveyard();
 //        initializes Columns and Rows list
         for (Column c : Column.values())
             col.add(c);
@@ -27,18 +29,22 @@ public class Game {
         String name_P2_str = name_P1.nextLine();
         PlayerQueue.add(new Player(Color.WHITE, name_P1_str));
         PlayerQueue.add(new Player(Color.BLACK, name_P2_str));
-//      ScoreBoard subscribes to the players
+//       ScoreBoard subscribes to the players
         for (int i=0 ; i<2; i++) {
             Player tempPlayer = PlayerQueue.remove();
             tempPlayer.registerObserver(sb);
             PlayerQueue.add(tempPlayer);
+        }
+//       Graveyard subscribes to the Pieces?
+        for (int i=0 ; i<gb1.Pieces.size() ; i++){
+            gb1.Pieces.get(i).registerObserver(graveyard);
         }
 
 
         while (!GameOver) {
             Player current_player = PlayerQueue.remove();
             Player next_player = PlayerQueue.remove();
-            printer.board_state(gb1.Fields, gb1.Pieces,name_P1_str,name_P2_str,sb);
+            printer.board_state(gb1.Fields, gb1.Pieces,name_P1_str,name_P2_str,sb,graveyard);
             Checkmate cm = new Checkmate();
             if (cm.checkmate(gb1, next_player)) {
                 GameOver=true;
@@ -227,6 +233,7 @@ public class Game {
                                 for (int i = 0; i <= gb1.Pieces.size() - 1; i++) {
                                     if (gb1.Pieces.get(i).getRow() == rk && gb1.Pieces.get(i).getColumn() == c && gb1.Pieces.get(i).getColor() != current_player.getColor()) {
                                         Piece dead_piece = gb1.Pieces.remove(i);
+                                        graveyard.update(dead_piece);
                                         current_player.add_captures(dead_piece);
                                         for (Field f : gb1.Fields) {
                                             if (f.getaColumn() == c && f.getaRow() == rk) f.unoccupy();
@@ -239,6 +246,7 @@ public class Game {
                                 for (int i = 0; i <= gb1.Pieces.size() - 1; i++) {
                                     if (gb1.Pieces.get(i).getRow() == rk && gb1.Pieces.get(i).getColumn() == c && gb1.Pieces.get(i).getColor() != current_player.getColor()) {
                                         Piece dead_piece = gb1.Pieces.remove(i);
+                                        graveyard.update(dead_piece);
                                         current_player.add_captures(dead_piece);
                                         for (Field f : gb1.Fields) {
                                             if (f.getaColumn() == c && f.getaRow() == rk) f.unoccupy();
@@ -251,6 +259,7 @@ public class Game {
                             for (int i=0; i<=gb1.Pieces.size()-1; i++) {
                                 if (gb1.Pieces.get(i).getRow()== r && gb1.Pieces.get(i).getColumn()== c && gb1.Pieces.get(i).getColor()!=current_player.getColor()){
                                     Piece dead_piece=gb1.Pieces.remove(i);
+                                    graveyard.update(dead_piece);
                                     current_player.add_captures(dead_piece);
                                 }
                             }
