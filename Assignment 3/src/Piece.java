@@ -1,10 +1,13 @@
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
-public class Piece {
+public class Piece implements ObservablePieces{
     protected Row y;
     protected Column x;
     protected Color color;
     protected int number_of_moves;
+    private List<ObserverPieces> subscribed_observers= new ArrayList<ObserverPieces>();
 
     public Piece(Piece p) {
         this.y = p.getRow();
@@ -76,5 +79,22 @@ public class Piece {
     }
     public boolean checkIfChecked(Gameboard gb) {
         return false;
+    }
+
+    @Override
+    public void registerObserver(ObserverPieces observerPieces) {subscribed_observers.add(observerPieces); }
+
+    @Override
+    public void removeObserver(ObserverPieces observerPieces) {
+        for (int i=0 ; i<subscribed_observers.size(); i++){
+            if (subscribed_observers.get(i) == observerPieces) subscribed_observers.remove(i);
+        }
+    }
+
+    @Override
+    public void notifyObserver(Piece dead_piece) {
+        for (int i=0 ; i<subscribed_observers.size(); i++){
+            subscribed_observers.get(i).update(dead_piece);
+        }
     }
 }
