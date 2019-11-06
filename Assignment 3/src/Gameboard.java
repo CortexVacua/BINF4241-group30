@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.BlockingDeque;
 
@@ -7,26 +8,14 @@ public class Gameboard {
     public List<Field> Fields = new ArrayList<>(); //needs to be made private after testing
     public List<Piece> Pieces = new ArrayList<>(); //needs to be made private after testing
 
-    public Gameboard(){
-        Color color = Color.BLACK ;
-        for(Row row : Row.values()){
-            for (Column column : Column.values()){
-            if (color==Color.BLACK) {
-                Fields.add(new Field(Color.BLACK,row,column,Occupied.UNOCCUPIED));
-                if (column != Column.H){
-                    color= Color.WHITE;}
-                }
-            else {
-                Fields.add(new Field(Color.WHITE,row,column,Occupied.UNOCCUPIED));
-                if (column != Column.H){
-                    color=Color.BLACK;
-                }
-            }
-            }
+    public Gameboard() {
+        Iterator fieldIterator = new FieldIterator();
+        while (fieldIterator.hasNext()) {
+            Fields.add((Field)fieldIterator.next());
         }
-        for (int i=0 ; i<64; i++){
-            if (Fields.get(i).getaRow()== Row.ONE ||Fields.get(i).getaRow()== Row.TWO ||
-                    Fields.get(i).getaRow()== Row.SEVEN || Fields.get(i).getaRow()== Row.EIGHT){
+        for (int i = 0; i < 64; i++) {
+            if (Fields.get(i).getaRow() == Row.ONE || Fields.get(i).getaRow() == Row.TWO ||
+                    Fields.get(i).getaRow() == Row.SEVEN || Fields.get(i).getaRow() == Row.EIGHT) {
                 Fields.get(i).occupy();
             }
         }
