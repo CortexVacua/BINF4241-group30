@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Piece implements ObservablePieces{
+public class Piece implements ObserverPieces{
     protected Row y;
     protected Column x;
     protected Color color;
@@ -81,20 +81,11 @@ public class Piece implements ObservablePieces{
         return false;
     }
 
-    @Override
-    public void registerObserver(ObserverPieces observerPieces) {subscribed_observers.add(observerPieces); }
-
-    @Override
-    public void removeObserver(ObserverPieces observerPieces) {
-        for (int i=0 ; i<subscribed_observers.size(); i++){
-            if (subscribed_observers.get(i) == observerPieces) subscribed_observers.remove(i);
-        }
-    }
-
-    @Override
-    public void notifyObserver(Piece dead_piece) {
-        for (int i=0 ; i<subscribed_observers.size(); i++){
-            subscribed_observers.get(i).update(dead_piece);
+    public void update (ObservablePieces game,Player current_player, List<Piece> piecesList, Row aRow, Column aColumn){
+        if (this.getRow()==aRow & this.getColumn()==aColumn) {
+            int index= piecesList.indexOf(this);
+            current_player.add_captures(piecesList.remove(index));
+            ((Game)game).removeObserver(this);
         }
     }
 }
