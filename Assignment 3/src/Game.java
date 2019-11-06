@@ -1,11 +1,26 @@
 import java.util.*;
 
-public class Game {
+public class Game implements ObservablePieces{
     private Queue<Player> PlayerQueue = new LinkedList<>();
     private boolean GameOver = false;
     private AlgebraicNotation alg_not = new AlgebraicNotation();
     private List<Column> col = new ArrayList<>();
     private List<Row> rows = new ArrayList<>();
+    private List<ObserverPieces> subscribed_pieces = new ArrayList<>();
+
+    public void registerObserver(ObserverPieces observerPieces) {
+        subscribed_pieces.add(observerPieces);
+    }
+
+
+    public void removeObserver(ObserverPieces observerPieces) {
+        subscribed_pieces.remove(subscribed_pieces.indexOf(observerPieces));
+    }
+
+
+    public void notifyObserver(ObservablePieces game, Player current_player,List<Piece> pieces_list, Row aRow, Column aColumn) {
+        for (int i=0; i<subscribed_pieces.size(); i++) subscribed_pieces.get(i).update(game,current_player,pieces_list, aRow, aColumn);
+    }
 
     public Game() {
 //        initializes ScoreBoard
@@ -17,6 +32,7 @@ public class Game {
             rows.add(r);
 //        initializes Gameboard and Printer
         Gameboard gb1 = new Gameboard();
+        for (int i=0; i<gb1.Pieces.size(); i++) registerObserver(gb1.Pieces.get(i));
         Printer printer = new Printer();
 //        initializes the players
         System.out.println("Please enter the first player's name (white): ");
@@ -27,7 +43,7 @@ public class Game {
         String name_P2_str = name_P1.nextLine();
         PlayerQueue.add(new Player(Color.WHITE, name_P1_str));
         PlayerQueue.add(new Player(Color.BLACK, name_P2_str));
-//      ScoreBoard subscribes to the players
+//       ScoreBoard subscribes to the players
         for (int i=0 ; i<2; i++) {
             Player tempPlayer = PlayerQueue.remove();
             tempPlayer.registerObserver(sb);
@@ -224,36 +240,21 @@ public class Game {
                         if (move_str.length()==8){
                             if (current_player.getColor()==Color.WHITE) {
                                 rk = rows.get(field_param[1] - 2);
-                                for (int i = 0; i <= gb1.Pieces.size() - 1; i++) {
-                                    if (gb1.Pieces.get(i).getRow() == rk && gb1.Pieces.get(i).getColumn() == c && gb1.Pieces.get(i).getColor() != current_player.getColor()) {
-                                        Piece dead_piece = gb1.Pieces.remove(i);
-                                        current_player.add_captures(dead_piece);
-                                        for (Field f : gb1.Fields) {
-                                            if (f.getaColumn() == c && f.getaRow() == rk) f.unoccupy();
-                                        }
-                                    }
+                                notifyObserver(this,current_player,gb1.Pieces,rk,c);
+                                for (int i=0; i<gb1.Fields.size();i++){
+                                    if (gb1.Fields.get(i).getaRow()==rk && gb1.Fields.get(i).getaColumn()==c) gb1.Fields.get(i).unoccupy();
                                 }
                             }
                             else if (current_player.getColor()==Color.BLACK){
                                 rk = rows.get(field_param[1]);
-                                for (int i = 0; i <= gb1.Pieces.size() - 1; i++) {
-                                    if (gb1.Pieces.get(i).getRow() == rk && gb1.Pieces.get(i).getColumn() == c && gb1.Pieces.get(i).getColor() != current_player.getColor()) {
-                                        Piece dead_piece = gb1.Pieces.remove(i);
-                                        current_player.add_captures(dead_piece);
-                                        for (Field f : gb1.Fields) {
-                                            if (f.getaColumn() == c && f.getaRow() == rk) f.unoccupy();
-                                        }
-                                    }
+                                notifyObserver(this,current_player,gb1.Pieces,rk,c);
+                                for (int i=0; i<gb1.Fields.size();i++){
+                                    if (gb1.Fields.get(i).getaRow()==rk && gb1.Fields.get(i).getaColumn()==c) gb1.Fields.get(i).unoccupy();
                                 }
                             }
                         }
                         else if (enemy_piece_on_field){
-                            for (int i=0; i<=gb1.Pieces.size()-1; i++) {
-                                if (gb1.Pieces.get(i).getRow()== r && gb1.Pieces.get(i).getColumn()== c && gb1.Pieces.get(i).getColor()!=current_player.getColor()){
-                                    Piece dead_piece=gb1.Pieces.remove(i);
-                                    current_player.add_captures(dead_piece);
-                                }
-                            }
+                            notifyObserver(this,current_player,gb1.Pieces,r,c);
                         }
 //                  occupies new field
                         for (Field f : gb1.Fields){

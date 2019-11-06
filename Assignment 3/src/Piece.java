@@ -1,10 +1,13 @@
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
-public class Piece {
+public class Piece implements ObserverPieces{
     protected Row y;
     protected Column x;
     protected Color color;
     protected int number_of_moves;
+    private List<ObserverPieces> subscribed_observers= new ArrayList<ObserverPieces>();
 
     public Piece(Piece p) {
         this.y = p.getRow();
@@ -76,5 +79,13 @@ public class Piece {
     }
     public boolean checkIfChecked(Gameboard gb) {
         return false;
+    }
+
+    public void update (ObservablePieces game,Player current_player, List<Piece> piecesList, Row aRow, Column aColumn){
+        if (this.getRow()==aRow & this.getColumn()==aColumn) {
+            int index= piecesList.indexOf(this);
+            current_player.add_captures(piecesList.remove(index));
+            ((Game)game).removeObserver(this);
+        }
     }
 }

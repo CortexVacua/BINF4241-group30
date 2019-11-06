@@ -130,8 +130,6 @@ public class Checkmate {
                 }
             }
             for(int k=0 ; k<block_fields.size() ; k++){
-                System.out.println(block_fields.get(k).getaColumn());
-                System.out.print(block_fields.get(k).getaRow());
                 for (int i=0 ; i<gb1.Pieces.size() ; i++){
                     if(gb1.Pieces.get(i).getColor() == def_color && gb1.Pieces.get(i).isValid(gb1,block_fields.get(k).getaColumn(),block_fields.get(k).getaRow())){
                         System.out.print("Check!\n");
