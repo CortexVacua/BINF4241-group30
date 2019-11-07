@@ -8,6 +8,8 @@ means that methods that interact with the Gameboard for whatever reason, that do
  in this diagram (Printer, checks for valid moves, etc.). Omitted as well are all the methods between objects, that do not affect
  the concrete gameboard object.
  
+This diagram shows the initialization of Gameboard and the possible state changes in one turn.
+ 
 You can find a png file of the diagram called Part_2.png within the same folder in this repository.
 
 
