@@ -45,18 +45,36 @@ ObserverPieces o-- ObservablePieces
 
 ```puml
 title Register and Remove Sequence Diagram
+-> Game
+activate Game
 note left: Initialization
 Game --> Printer: new Printer
+activate Printer
 Game --> Gameboard: new Gameboard
-Gameboard --> FieldIterator: new Field
-FieldIterator --> Gameboard: List field
-Gameboard --> Game: Gameboard gameboard
+activate Gameboard
+Gameboard --> Field: new Fields
+activate Field
+Gameboard --> Piece: new Pieces
+activate Piece
+Field --> Gameboard: return List fields
+Piece --> Gameboard: return List pieces
+Gameboard --> Game: return Gameboard gameboard
+Game --> Player: new Player
+activate Player
+Player --> Game: return list players
 Game -> Piece: registerObserver()
 note left: Register
 Group Loop
 Game -> Printer: board_state()
+-->Game: Player Input
+Piece -> Field: unoccupy()
 Game -> Piece: notifyObserver()
 Piece -> Piece: Update()
+Group If a Piece gets eaten
+Piece -> Player: add_captures()
+Piece -> Game: removeObserver()
+end
+Piece -> Field: occupy()
 end
 ```
 
@@ -71,14 +89,22 @@ Kenobi -> Archives: isComplete()
 Archives --> Kenobi: return False
 ```
 ```puml
+activate Tenko
+activate Korekiyo
+activate Himiko
 Tenko -> Cage: occupy()
+activate Cage
 Korekiyo -> Cage: isOccupied()
 Cage --> Korekiyo: return True
 Korekiyo -> Seesaw: doSeeSaw()
+activate Seesaw
 Seesaw -> Cage: applySeeSawEffect()
+deactivate Seesaw
 Cage -> Tenko: kill()
 Tenko -> Tenko: setDeadTrue()
+deactivate Tenko
 Himiko -> Cage: liftup()
+deactivate Cage
 Himiko -> Tenko: isDead()
 Tenko --> Himiko: return True 
 ```
