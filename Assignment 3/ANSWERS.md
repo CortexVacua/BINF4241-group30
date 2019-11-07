@@ -1,6 +1,6 @@
 Part 1:
 ---
-####Iterator
+#### Iterator
 
 We have decided to implement the Iterator design pattern when initializing the fields of the game board. We created a class FieldIterator that implements the Iterator interface and initializes the list of fields. That way, we can externalize some of the logic from the Gameboard class, which now calls the FieldIterator instead of initializing the fields by itself.
 
@@ -75,7 +75,8 @@ deactivate Gameboard
 You can find a png file of the diagram called "Part 1 Iterator sequence diagram.png" within the same folder in this repository.
 
 ---
-##Part 2:
+Part 2:
+---
 
 This sequence diagram of the Gameboard only looks at the real gameboard object, that is used and not at any copies, 
 which are used for checks of possible moves (e.g. valid moves of the king).
@@ -133,7 +134,8 @@ deactivate Piece
 ```
 
 ---
-##Part 3:
+Part 3:
+---
 
 We decided to implement a Scoreboard that uses the Observer pattern for the third part. So we created the interfaces ObservableSB (registerObserver, removeObserver, notifyObserver) and ObserverSB (update) and a new class named ScoreBoard. 
 
