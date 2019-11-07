@@ -9,6 +9,9 @@ means that methods that interact with the Gameboard for whatever reason, that do
  the concrete gameboard object.
  
 This diagram shows the initialization of Gameboard and the possible state changes in one turn.
+
+There are not many methods that actually change the state of the Gameboard. The few that do are mentioned in the diagram
+and are self explanatory. Where needed some slight comments where added in the diagram to make it clearer.
  
 You can find a png file of the diagram called Part_2.png within the same folder in this repository.
 
@@ -50,6 +53,14 @@ Piece-->Piece: setPosition(), changes Position of Piece
 Piece-->Gameboard: indirect change in Pieces list, bc of change in attributes of a Piece
 Piece->Gameboard: Piece.update(), removes captured pieces from Pieces list after dying
 Gameboard-->Piece: returns the removed Piece, which is than added to the captures through Piece.update()
+Game->Gameboard: within game(): check for Pawns able to promote in Pieces
+alt there is Pawn that can be promoted
+    Gameboard-->Game: return true
+    Game->Gameboard: Gameboard.Pieces.remove(Pawn), removes Pawn 
+    Game->Gameboard: Gameboard.Pieces.add(desired_Piece), adds desired Piece 
+else no Pawn can be promoted
+    Gameboard-->Game: return false
+end
 deactivate Game
 deactivate Gameboard
 deactivate Field
