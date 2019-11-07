@@ -5,7 +5,8 @@ which are used for checks of possible moves (e.g. valid moves of the king).
 
 As requested this sequence diagram only looks at methods, that actually cause a state change within the Gameboard . This
 means that methods that interact with the Gameboard for whatever reason, that do not result in a state change are omitted
- in this diagram (Printer, checks for valid moves, etc.).
+ in this diagram (Printer, checks for valid moves, etc.). Omitted as well are all the methods between objects, that do not affect
+ the concrete gameboard object.
  
 You can find a png file of the diagram called Part_2.png within the same folder in this repository.
 
