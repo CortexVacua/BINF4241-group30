@@ -46,6 +46,8 @@ FieldIterator o- Field
 Gameboard o-- Field
 Gameboard o- FieldIterator
 ```
+You can find a png file of the diagram called "Part 1 Iterator class diagram.png" within the same folder in this repository.
+
 
 The sequence diagram is as follows:
 
@@ -70,5 +72,7 @@ FieldIterator --> Gameboard: return Field
 Gameboard -> Gameboard: Fields.add(Field)
 deactivate Gameboard
 ```
+You can find a png file of the diagram called "Part 1 Iterator sequence diagram.png" within the same folder in this repository.
+
 ---
 *From here the file continues with Part 1.5 and Part 2*
