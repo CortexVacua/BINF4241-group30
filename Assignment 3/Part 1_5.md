@@ -42,3 +42,43 @@ ObservablePieces <|-- Game
 ObserverPieces o-- ObservablePieces
 
 ```
+
+```puml
+title Register and Remove Sequence Diagram
+note left: Initialization
+Game --> Printer: new Printer
+Game --> Gameboard: new Gameboard
+Gameboard --> FieldIterator: new Field
+FieldIterator --> Gameboard: List field
+Gameboard --> Game: Gameboard gameboard
+Game -> Piece: registerObserver()
+note left: Register
+Group Loop
+Game -> Printer: board_state()
+Game -> Piece: notifyObserver()
+Piece -> Piece: Update()
+end
+```
+
+```puml
+Kenobi -> Grievious: Hello there.
+Grievious -> Kenobi: General Kenobi. 
+Kenobi -> Skywalker: It's over Anakin. I have the high ground!
+Skywalker -> Kenobi: You underestimate my power!
+Skywalker -> Padme: i hate sand
+Padme -> Skywalker: lol ok
+Kenobi -> Archives: isComplete()
+Archives --> Kenobi: return False
+```
+```puml
+Tenko -> Cage: occupy()
+Korekiyo -> Cage: isOccupied()
+Cage --> Korekiyo: return True
+Korekiyo -> Seesaw: doSeeSaw()
+Seesaw -> Cage: applySeeSawEffect()
+Cage -> Tenko: kill()
+Tenko -> Tenko: setDeadTrue()
+Himiko -> Cage: liftup()
+Himiko -> Tenko: isDead()
+Tenko --> Himiko: return True 
+```
