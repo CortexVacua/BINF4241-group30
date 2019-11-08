@@ -77,34 +77,3 @@ end
 Piece -> Field: occupy()
 end
 ```
-
-```puml
-Kenobi -> Grievious: Hello there.
-Grievious -> Kenobi: General Kenobi. 
-Kenobi -> Skywalker: It's over Anakin. I have the high ground!
-Skywalker -> Kenobi: You underestimate my power!
-Skywalker -> Padme: i hate sand
-Padme -> Skywalker: lol ok
-Kenobi -> Archives: isComplete()
-Archives --> Kenobi: return False
-```
-```puml
-activate Tenko
-activate Korekiyo
-activate Himiko
-Tenko -> Cage: occupy()
-activate Cage
-Korekiyo -> Cage: isOccupied()
-Cage --> Korekiyo: return True
-Korekiyo -> Seesaw: doSeeSaw()
-activate Seesaw
-Seesaw -> Cage: applySeeSawEffect()
-deactivate Seesaw
-Cage -> Tenko: kill()
-Tenko -> Tenko: setDeadTrue()
-deactivate Tenko
-Himiko -> Cage: liftup()
-deactivate Cage
-Himiko -> Tenko: isDead()
-Tenko --> Himiko: return True 
-```
