@@ -75,6 +75,90 @@ deactivate Gameboard
 You can find a png file of the diagram called "Part 1 Iterator sequence diagram.png" within the same folder in this repository.
 
 ---
+### Observer
+#### Implementing Pieces as Observers
+
+In this part, we implemented the chess pieces as observers and the game as observables. At the start
+of the game, the pieces are initialized by registering them in the observer list from the game. When a piece is 
+going to get eaten by another piece, the game will notify every pieces, updating them for their current row and column.
+If a piece has the same row and column as the updating row and column, it will remove itself from the
+game by removing it from the observer list. 
+
+We made two new interfaces called ObservablePieces and ObserverPieces. We also implemented in the class
+Piece the ObserverPieces interface and in the class Game the ObservablePieces interface. We had to slightly
+change how the pieces get eaten in the Game Class and added an ArrayList for the observers in the Game and
+the Piece class.
+
+ 
+
+```puml
+
+interface ObservablePieces <<Interface>> {
+    +registerObserver()
+    +removeObserver()
+    +notifyObserver()
+}
+
+interface ObserverPieces <<Interface>> {
+    +update()
+}
+
+Class Piece {
+    -ArrayList<ObserverPieces> subscribed_observer
+    +update()
+}
+
+Class Game {
+    -ArrayList<ObserverPieces> subscribed_observer
+    +registerObserver()
+    +removeObserver()
+    +notifyObserver()
+}
+
+ObserverPieces <|-- Piece
+ObservablePieces <|-- Game
+ObserverPieces o-- ObservablePieces
+
+```
+
+```puml
+title Register and Remove Sequence Diagram
+-> Game
+activate Game
+note left: Initialization
+Game --> Printer: new Printer
+activate Printer
+Game --> Gameboard: new Gameboard
+activate Gameboard
+Gameboard --> Field: new Fields
+activate Field
+Gameboard --> Piece: new Pieces
+activate Piece
+Field --> Gameboard: return List fields
+Piece --> Gameboard: return List pieces
+Gameboard --> Game: return Gameboard gameboard
+Game --> Player: new Player
+activate Player
+Player --> Game: return list players
+Game -> Piece: registerObserver()
+note left: Register
+Group Loop
+Game -> Printer: board_state()
+-->Game: Player Input
+Piece -> Field: unoccupy()
+Game -> Piece: notifyObserver()
+Piece -> Piece: Update()
+Group If a Piece gets eaten
+Piece -> Player: add_captures()
+Piece -> Game: removeObserver()
+end
+Piece -> Field: occupy()
+end
+```
+You can find png files of the diagrams called "Part 1 Observer class diagram.png" and "Part 1 Observer sequence diagram.png" within the same folder in this repository.
+
+
+---
 Part 2:
 ---
 
@@ -91,7 +175,7 @@ This diagram shows the initialization of Gameboard and the possible state change
 There are not many methods that actually change the state of the Gameboard. The few that do are mentioned in the diagram
 and are self explanatory. Where needed some slight comments where added in the diagram to make it clearer.
  
-You can find a png file of the diagram called Part_2.png within the same folder in this repository.
+You can find a png file of the diagram called "Part_2.png" within the same folder in this repository.
 
 ```puml
 ->Game
@@ -148,3 +232,5 @@ For the printout, we had to slightly adjust our Printer class and implement a ge
 Further adjustments to the preexisting code that had to be made are the following: 
 - initializing the scoreboard within the Game class
 - passing the player names to the Printer class, so that both names can be printed independently from the current player making his move
+
+The notation accepted as input is the same as in Assignment 2 and can be found in the ReadMe.md file within the same folder in this repository.
