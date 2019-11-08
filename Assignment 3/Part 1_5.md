@@ -42,3 +42,38 @@ ObservablePieces <|-- Game
 ObserverPieces o-- ObservablePieces
 
 ```
+
+```puml
+title Register and Remove Sequence Diagram
+-> Game
+activate Game
+note left: Initialization
+Game --> Printer: new Printer
+activate Printer
+Game --> Gameboard: new Gameboard
+activate Gameboard
+Gameboard --> Field: new Fields
+activate Field
+Gameboard --> Piece: new Pieces
+activate Piece
+Field --> Gameboard: return List fields
+Piece --> Gameboard: return List pieces
+Gameboard --> Game: return Gameboard gameboard
+Game --> Player: new Player
+activate Player
+Player --> Game: return list players
+Game -> Piece: registerObserver()
+note left: Register
+Group Loop
+Game -> Printer: board_state()
+-->Game: Player Input
+Piece -> Field: unoccupy()
+Game -> Piece: notifyObserver()
+Piece -> Piece: Update()
+Group If a Piece gets eaten
+Piece -> Player: add_captures()
+Piece -> Game: removeObserver()
+end
+Piece -> Field: occupy()
+end
+```
