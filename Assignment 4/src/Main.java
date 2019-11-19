@@ -12,12 +12,10 @@ public class Main {
     public static void main(String args[]) {
 
         Oven O=new Oven();
+        O.SwitchOn();
         O.SetTimer(200);
         O.SetTemperature(200);
         O.Start();
 
-        while (true){
-            O.CheckTimer();
-        }
     }
 }

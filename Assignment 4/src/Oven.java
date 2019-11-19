@@ -16,19 +16,19 @@ public class Oven implements BaseInterface, Switch, Temperature{
                 timer = TimeInSeconds * 1000;
             }
         }
-        else System.out.println("Oven is not turned on.");
+        else System.out.println("Oven is switched off.");
     }
 
     public void CheckTimer() {
         if (system_on==true) {
-            if (Ovenmt.isRunning() == false | Ovenmt == null)
+            if (Ovenmt == null)
                 System.out.println("Set timer is: " + timer / 1000 + "\n");
             else {
                 elapsedtime = System.currentTimeMillis() - starttime;
                 System.out.println("Time remaining: " + (timer - elapsedtime) / 1000);
             }
         }
-        else System.out.println("Oven is not turned on.");
+        else System.out.println("Oven is switched off.");
     }
 
     public void SetTemperature(int TempInCelsius){
@@ -38,20 +38,19 @@ public class Oven implements BaseInterface, Switch, Temperature{
                 temperature = TempInCelsius;
             }
         }
-        else System.out.println("Oven is not turned on.");
+        else System.out.println("Oven is switched off.");
     }
 
     public void SetProgram(OvenProgram DesiredProgram){
         if (system_on==true) {
             program=DesiredProgram;
         }
-        else System.out.println("Oven is not turned on.");
+        else System.out.println("Oven is switched off.");
     }
 
     public void Start() {
         if (system_on==true) {
-
-            if (Ovenmt == null | Ovenmt.isRunning() == false) {
+            if (Ovenmt == null) {
                 if (timer == 0) System.out.println("No timer set!");
                 if (temperature == 0) System.out.println("Temperature has not been set.");
                 if (program==null) System.out.println("No program selected.");
@@ -64,7 +63,7 @@ public class Oven implements BaseInterface, Switch, Temperature{
                 }
             } else System.out.println("Oven already running.");
         }
-        else System.out.println("Oven is not turned on.");
+        else System.out.println("Oven is switched off.");
     }
 
     public void Stop() {
@@ -81,7 +80,7 @@ public class Oven implements BaseInterface, Switch, Temperature{
 
 
     public void SwitchOn() {
-        if (system_on==true) System.out.println("Oven is already on.");
+        if (system_on==true) System.out.println("Oven is already switched on.");
         else system_on=true;
 
     }
@@ -89,6 +88,6 @@ public class Oven implements BaseInterface, Switch, Temperature{
 
     public void SwitchOff() {
         if (system_on == true) system_on = false;
-        else System.out.println("Oven is not turned on.");
+        else System.out.println("Oven is switched off.");
     }
 }
