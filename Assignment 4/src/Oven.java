@@ -6,6 +6,7 @@ public class Oven implements BaseInterface, Switch, Temperature{
     private int temperature;
     private long elapsedtime;
     private long starttime;
+    private OvenProgram program;
 
 
     public void SetTimer(int TimeInSeconds) {
@@ -40,17 +41,26 @@ public class Oven implements BaseInterface, Switch, Temperature{
         else System.out.println("Oven is not turned on.");
     }
 
+    public void SetProgram(OvenProgram DesiredProgram){
+        if (system_on==true) {
+            program=DesiredProgram;
+        }
+        else System.out.println("Oven is not turned on.");
+    }
+
     public void Start() {
         if (system_on==true) {
 
             if (Ovenmt == null | Ovenmt.isRunning() == false) {
                 if (timer == 0) System.out.println("No timer set!");
-                else if (temperature == 0) System.out.println("Temperature has not been set.");
-                else {
+                if (temperature == 0) System.out.println("Temperature has not been set.");
+                if (program==null) System.out.println("No program selected.");
+                else if (timer!=0 && temperature !=0 && program instanceof OvenProgram){
                     Ovenmt = new MyThread(timer);
                     Ovenrt = new Thread(Ovenmt, "Oven");
                     Ovenrt.start();
                     starttime = System.currentTimeMillis();
+                    System.out.println("The oven is running");
                 }
             } else System.out.println("Oven already running.");
         }
