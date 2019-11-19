@@ -1,6 +1,6 @@
 public interface BaseInterface {
     public void SetTimer (int Seconds);
-    public int CheckTimer();
+    public void CheckTimer();
     public void Start();
     public void Stop();
 }
