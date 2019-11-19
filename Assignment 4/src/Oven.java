@@ -19,7 +19,7 @@ public class Oven implements BaseInterface, Switch, Temperature{
         System.out.println("Set timer is: "+timer/1000+"\n");
         else {
             elapsedtime=System.currentTimeMillis()-starttime;
-            System.out.println("Time remaining: "+(timer-elapsedtime));
+            System.out.println("Time remaining: "+(timer-elapsedtime)/1000);
             return 0;
         }
         return 0;
@@ -37,8 +37,9 @@ public class Oven implements BaseInterface, Switch, Temperature{
             if (timer == 0) System.out.println("No timer set");
             else if (temperature == 0) System.out.println("Temperature has not been set");
             else {
-                Ovenmt = new MyThread(timer);
+                Ovenmt=new MyThread(timer);
                 Ovenrt = new Thread(Ovenmt, "Oven");
+                Ovenrt.start();
                 starttime = System.currentTimeMillis();
             }
         }
