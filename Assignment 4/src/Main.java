@@ -10,12 +10,14 @@ import java.util.*;
 public class Main {
 
     public static void main(String args[]) {
-
         Oven O=new Oven();
         O.SwitchOn();
         O.SetTimer(200);
         O.SetTemperature(200);
+        O.SetProgram(OvenProgram.GRILLED);
         O.Start();
 
+        Dishwasher DW = new Dishwasher();
+        DW.chooseProgram(DW.glassesState);
     }
 }
