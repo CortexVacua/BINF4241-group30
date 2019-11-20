@@ -1,5 +1,6 @@
 public class WashingMachine implements BaseInterface, Temperature, Switch {
     private boolean system_on = false;
+    private int temperature;
     private  int timer;
     private MyThread washingmachine_thread;
     private long elapsedtime;
@@ -10,7 +11,7 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
     WashingMachineState quickState;
     WashingMachineState spinState;
 
-    WashingMachineState washingMachineState;
+    WashingMachineState washingmachine_state;
 
     public WashingMachine(){
         doubleRinseState = new WashingDoubleRinseState(this);
@@ -40,7 +41,21 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
 
     @Override
     public void SetTemperature(int TemperatureInCelsius) {
+        if(system_on == true){
+            if(TemperatureInCelsius <= 0) System.out.print("Cannot wash clothes with frozen water.\n");
+            else if (TemperatureInCelsius >= 100) System.out.print("Cannot wash clothes with boiling water.\n");
+            else temperature = TemperatureInCelsius;
+        }
+        else System.out.print("Washing machine is switched off. \n");
 
+    }
+
+    public void chooseProgram(WashingMachineState state){
+        if(system_on == true){
+            washingmachine_state = state;
+            washingmachine_state.setTimer();
+        }
+        else System.out.print("Washing machine is switched off.\n");
     }
 
     @Override
