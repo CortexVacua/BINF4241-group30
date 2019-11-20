@@ -1,5 +1,5 @@
 public class DishwasherGlassesState implements DishwasherState {
-    int time = 300;
+    int time = 30;
     Dishwasher dishwasher;
 
     public DishwasherGlassesState(Dishwasher dw){
