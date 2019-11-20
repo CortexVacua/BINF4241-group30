@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class OvenSetTemperature {
+public class OvenSetTemperature implements Command{
     Oven oven;
     int Temp;
 
@@ -8,7 +8,7 @@ public class OvenSetTemperature {
         oven=o;
     }
     public void execute(){
-        System.out.println("Please set your timer in seconds: \n");
+        System.out.println("Please set your desired temperature in celsius: \n");
         Scanner myObj = new Scanner(System.in);
         if (myObj.hasNextInt()) {
             Temp = myObj.nextInt();
