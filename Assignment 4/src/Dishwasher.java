@@ -11,7 +11,6 @@ public class Dishwasher implements BaseInterface,Switch {
     DishwasherState mixedState;
 
     DishwasherState dishwasher_state;
-    //DishwasherState noState;
 
     public Dishwasher(){
         timer = 0;
@@ -19,8 +18,6 @@ public class Dishwasher implements BaseInterface,Switch {
         pansState = new DishwasherPansState(this);
         platesState = new DishwasherPlatesState(this);
         mixedState = new DishwasherMixedState(this);
-     //   noState = new DishwasherNoState(this);
-
     }
 
     @Override
