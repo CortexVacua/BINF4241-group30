@@ -45,6 +45,8 @@ public class MyThread implements Runnable{
             running = true;
             Thread.sleep(time);
             running = false;
+            System.out.println("The "+Thread.currentThread().getName() + " has finished its program successfully.\n");
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
