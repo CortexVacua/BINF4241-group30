@@ -2,7 +2,8 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
     private boolean system_on = false;
     private int temperature;
     private  int timer;
-    private MyThread washingmachine_thread;
+    private MyThread washingmachine_mythread;
+    private Thread washingmachine_thread;
     private long elapsedtime;
     private long starttime;
 
@@ -19,6 +20,7 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
         quickState = new WashingQuickState(this);
         spinState = new WashingSpinState(this);
         timer = 0;
+        temperature = 0;
     }
 
     @Override
@@ -65,16 +67,53 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
 
     @Override
     public void CheckTimer() {
-
+        if(system_on = true){
+            if(washingmachine_mythread == null){
+                System.out.print("Set timer is: " +timer / 1000 + " seconds.\n");
+            }
+            else{
+                elapsedtime = System.currentTimeMillis() - starttime;
+                System.out.print("Time remaining: " + (timer - elapsedtime) / 1000 + " seconds.\n");
+            }
+        }
+        else System.out.print("Washing machine is switched off.\n");
     }
 
     @Override
     public void Start() {
-
+        if(system_on == true){
+            if(washingmachine_mythread == null){
+                if(washingmachine_state == null) System.out.print("No washing machine method set.\n");
+                else if (temperature <= 0 || temperature >= 100 ) System.out.print("No temperature set.\n");
+                else if(washingmachine_state instanceof WashingMachineState){
+                    washingmachine_mythread = new MyThread(timer);
+                    washingmachine_thread = new Thread(washingmachine_mythread, "Washing machine");
+                    washingmachine_thread.start();
+                    starttime = System.currentTimeMillis();
+                    System.out.print("Washing machine is running.\n");
+                }
+            }
+            else System.out.print("Washing machine is already running.\n");
+        }
+        else System.out.print("Washing machine is switched off.\n");
     }
 
     @Override
     public void Stop() {
-
+        if(system_on == true){
+            if(washingmachine_mythread.isRunning() == false) {
+                washingmachine_mythread = null;
+                washingmachine_thread = null;
+                washingmachine_state = null;
+                temperature = 0;
+                timer = 0;
+                starttime = 0;
+                elapsedtime = 0;
+                System.out.print("Washing machine was forced to stop washing. QwQ\n");
+            }
+            else System.out.print("Washing machine is still running.");
+        }
+        else System.out.print("Washing machine is switched off.\n");
     }
 }
+

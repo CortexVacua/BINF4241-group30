@@ -65,7 +65,6 @@ public class Dishwasher implements BaseInterface,Switch {
             }
         }
         else System.out.print("Dishwasher is switched off.\n");
-
     }
 
     @Override
@@ -86,7 +85,6 @@ public class Dishwasher implements BaseInterface,Switch {
             else System.out.print("Dishwasher is already running.\n");
         }
         else System.out.print("Dishwasher is switched off.\n");
-
     }
 
     @Override
@@ -102,5 +100,4 @@ public class Dishwasher implements BaseInterface,Switch {
         }
         else System.out.print("Dishwasher is switched off.\n");
     }
-
 }
