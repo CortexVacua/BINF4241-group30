@@ -1,8 +1,8 @@
-public class DishwasherGlassesState implements DishwasherState {
-    int time = 10;
+public class DishwasherMixedState implements DishwasherState {
+    int time = 500;
     Dishwasher dishwasher;
 
-    public DishwasherGlassesState(Dishwasher dw){
+    public DishwasherMixedState(Dishwasher dw){
         this.dishwasher = dw;
     }
 

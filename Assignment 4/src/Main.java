@@ -15,9 +15,16 @@ public class Main {
         O.SetTimer(200);
         O.SetTemperature(200);
         O.SetProgram(OvenProgram.GRILLED);
+        O.CheckTimer();
         O.Start();
+        O.CheckTimer();
+
+        System.out.print("\n");
 
         Dishwasher DW = new Dishwasher();
+        DW.SwitchOn();
         DW.chooseProgram(DW.glassesState);
+        DW.Start();
+        O.CheckTimer();
     }
 }

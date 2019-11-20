@@ -9,6 +9,6 @@ public class DishwasherNoState implements DishwasherState {
     @Override
     public void setTimer() {
         dishwasher.SetTimer(time);
-        System.out.print("Error: No Program was chosen. Timer could not be set.");
+        System.out.print("Error: No Program was chosen. Timer could not be set.\n");
     }
 }
