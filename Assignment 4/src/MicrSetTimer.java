@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-public class OvenSetTimer implements Command{
-    Oven oven;
+public class MicrSetTimer implements Command{
+    Microwave micr;
     int TimeInSeconds;
 
-    public OvenSetTimer(Oven o){
-        oven=o;
+    public MicrSetTimer(Microwave m){
+        micr=m;
     }
 
 //    sets timer
@@ -14,7 +14,7 @@ public class OvenSetTimer implements Command{
         Scanner myObj = new Scanner(System.in);
         if (myObj.hasNextInt()) {
             TimeInSeconds = myObj.nextInt();
-            oven.SetTimer(TimeInSeconds);
+            micr.SetTimer(TimeInSeconds);
         }
         else {
             System.out.println("Invalid Input! Try again. \n");

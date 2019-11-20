@@ -3,6 +3,8 @@ public class OvenStart implements Command{
     public OvenStart(Oven o){
         oven=o;
     }
+
+//    starts the oven
     public void execute(){
         oven.Start();
     }

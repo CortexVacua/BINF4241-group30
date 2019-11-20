@@ -3,6 +3,8 @@ public class OvenStop implements Command{
     public OvenStop(Oven o){
         oven=o;
     }
+
+//    stops the oven
     public void execute(){
         oven.Stop();
     }

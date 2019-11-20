@@ -8,6 +8,7 @@ public class OvenSetProgram implements Command {
         oven = o;
     }
 
+//    sets program
     public void execute() {
         System.out.println("Please set your program: \n" +
                 "for grilled type in -g,\nfor ventilated type in -v,\nfor bottom heat type in -b,\nfor top heat type in -t,\n" +

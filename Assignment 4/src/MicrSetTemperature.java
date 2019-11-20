@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-public class OvenSetTemperature implements Command{
-    Oven oven;
+public class MicrSetTemperature implements Command{
+    Microwave micr;
     int Temp;
 
-    public OvenSetTemperature(Oven o){
-        oven=o;
+    public MicrSetTemperature(Microwave m){
+        micr=m;
     }
 
 //    sets temperature
@@ -14,7 +14,7 @@ public class OvenSetTemperature implements Command{
         Scanner myObj = new Scanner(System.in);
         if (myObj.hasNextInt()) {
             Temp = myObj.nextInt();
-            oven.SetTemperature(Temp);
+            micr.SetTemperature(Temp);
         }
         else {
             System.out.println("Invalid Input! Try again. \n");

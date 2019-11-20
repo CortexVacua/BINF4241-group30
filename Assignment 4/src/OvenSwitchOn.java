@@ -3,6 +3,8 @@ public class OvenSwitchOn implements Command{
     public OvenSwitchOn(Oven o){
         oven=o;
     }
+
+//    switches oven on
     public void execute(){
         oven.SwitchOn();
     }

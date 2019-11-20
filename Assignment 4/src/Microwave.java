@@ -1,13 +1,13 @@
     public class Microwave implements BaseInterface, Switch, Temperature{
         private MyThread Microwavemt;
         private Thread Microwavert;
-        private boolean system_on = false;
+        public boolean system_on = false;
         private int timer;
         private int temperature;
         private long elapsedtime;
         private long starttime;
 
-
+//sets timer
         public void SetTimer(int TimeInSeconds) {
             if (system_on==true) {
                 if (TimeInSeconds <= 0) System.out.println("Timer cannot be set to 0 or to a negative value.\n");
@@ -18,6 +18,7 @@
             else System.out.println("Microwave is switched off.\n");
         }
 
+//        checks timer
         public void CheckTimer() {
             if (system_on==true) {
                 if (Microwavemt == null)
@@ -33,6 +34,7 @@
             else System.out.println("Microwave is switched off.\n");
         }
 
+//        sets temperature
         public void SetTemperature(int TempInCelsius){
             if (system_on==true) {
                 if (TempInCelsius <= 0) System.out.println("Temperature cannot be set to 0 or to a negative value.\n");
@@ -43,6 +45,7 @@
             else System.out.println("Microwave is switched off.\n");
         }
 
+//        starts microwave
         public void Start() {
             if (system_on==true) {
                 if (Microwavemt == null) {
@@ -55,11 +58,14 @@
                         starttime = System.currentTimeMillis();
                         System.out.println("The microwave is running.\n");
                     }
-                } else System.out.println("Microwave already running.\n");
+                }
+                else if (Microwavemt.isRunning()==false) Microwavert.start();
+                else System.out.println("Microwave already running.\n");
             }
             else System.out.println("Microwave is switched off.\n");
         }
 
+//        stops microwave
         public void Stop() {
             if (system_on==true) {
                 if(Microwavemt!=null && Microwavemt.isRunning()) {
@@ -75,7 +81,7 @@
             else System.out.println("Microwave is switched off.\n");
         }
 
-
+//switches microwave on
         public void SwitchOn() {
             if (system_on==true) System.out.println("Microwave is already switched on.\n");
             else {
@@ -85,11 +91,12 @@
 
         }
 
-
+//switches microwave off
         public void SwitchOff() {
             if (system_on == true) {
                 system_on = false;
                 System.out.println("Microwave has been switched off.\n");
+
             }
             else System.out.println("Microwave is already switched off.\n");
         }
