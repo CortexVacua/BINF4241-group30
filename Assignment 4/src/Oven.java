@@ -14,6 +14,7 @@ public class Oven implements BaseInterface, Switch, Temperature{
             if (TimeInSeconds <= 0) System.out.println("Timer cannot be set to 0 or to a negative value.\n");
             else {
                 timer = TimeInSeconds * 1000;
+                System.out.println("Timer set.\n");
             }
         }
         else System.out.println("Oven is switched off.\n");
@@ -39,6 +40,7 @@ public class Oven implements BaseInterface, Switch, Temperature{
             if (TempInCelsius <= 0) System.out.println("Temperature cannot be set to 0 or to a negative value.\n");
             else {
                 temperature = TempInCelsius;
+                System.out.println("Temperature set.\n");
             }
         }
         else System.out.println("Oven is switched off.\n");
@@ -47,6 +49,7 @@ public class Oven implements BaseInterface, Switch, Temperature{
     public void SetProgram(OvenProgram DesiredProgram){
         if (system_on==true) {
             program=DesiredProgram;
+            System.out.println("Program set.\n");
         }
         else System.out.println("Oven is switched off.\n");
     }
