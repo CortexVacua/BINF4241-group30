@@ -1,7 +1,8 @@
 public class Dishwasher implements BaseInterface,Switch {
     private boolean system_on = false;
     private  int timer;
-    private MyThread dishwasher_thread;
+    private MyThread dishwasher_mythread;
+    private Thread dishwasher_thread;
     private long elapsedtime;
     private long starttime;
 
@@ -55,7 +56,7 @@ public class Dishwasher implements BaseInterface,Switch {
     @Override
     public void CheckTimer(){
         if(system_on = true){
-            if(dishwasher_thread == null){
+            if(dishwasher_mythread == null){
                 System.out.print("Set timer is: " +timer / 1000 + " seconds.\n");
             }
             else{
@@ -70,16 +71,16 @@ public class Dishwasher implements BaseInterface,Switch {
     @Override
     public void Start() {
         if(system_on == true){
-            if(dishwasher_thread == null){
+            if(dishwasher_mythread == null){
                 if(dishwasher_state == null){
                     System.out.print("No dishwasher method set.\n");
                 }
-                else {
-                    dishwasher_thread = new MyThread(timer);
+                else if(dishwasher_state instanceof DishwasherState){
+                    dishwasher_mythread = new MyThread(timer);
+                    dishwasher_thread = new Thread(dishwasher_mythread, "Dishwasher");
+                    dishwasher_thread.start();
                     starttime = System.currentTimeMillis();
                     System.out.print("The dishwasher is running.\n");
-                    dishwasher_thread.run();
-                    System.out.print("The dishwasher is finished.\n");
                 }
             }
             else System.out.print("Dishwasher is already running.\n");
@@ -91,6 +92,7 @@ public class Dishwasher implements BaseInterface,Switch {
     @Override
     public void Stop() {
         if(system_on == true){
+            dishwasher_mythread = null;
             dishwasher_thread = null;
             dishwasher_state = null;
             timer = 0;
