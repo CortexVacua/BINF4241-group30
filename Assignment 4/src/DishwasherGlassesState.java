@@ -8,7 +8,7 @@ public class DishwasherGlassesState implements DishwasherState {
 
     @Override
     public void setTimer() {
-        dishwasher.setTimer(time);
-        System.out.print("Dishwasher set to wash glasses.");
+        dishwasher.SetTimer(time);
+        System.out.print("Dishwasher is now set to wash glasses.");
     }
 }
