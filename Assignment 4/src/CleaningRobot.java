@@ -13,7 +13,7 @@ public class CleaningRobot implements BaseInterface, Charger {
          Robot = new RobotThread();
          Robotrt = new Thread(Robot, "cleaning robot");
          Robotrt.start();
-    }
+             }
 
     //sets timer
     public void SetTimer(int TimeInSeconds) {
@@ -28,6 +28,7 @@ public class CleaningRobot implements BaseInterface, Charger {
     //starts cleaning
     public void Start() {
         Robot.Start();
+        System.out.println("The cleaning robot is now in operation.\n");
     }
 
     //stops cleaning robot
