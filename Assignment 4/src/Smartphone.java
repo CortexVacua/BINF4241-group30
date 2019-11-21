@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Smartphone {
     Oven oven=new Oven();
     Microwave micr= new Microwave();
+    CleaningRobot rbt = new CleaningRobot();
 
     Command OvenSwitchOn=new OvenSwitchOn(oven);
     Command OvenSwitchOff=new OvenSwitchOff(oven);
@@ -20,6 +21,14 @@ public class Smartphone {
     Command MicrStart=new MicrStart(micr);
     Command MicrStop=new MicrStop(micr);
     Command MicrSetTemperature=new MicrSetTemperature(micr);
+
+    Command RobotCheckBattery = new RobotCheckBattery(rbt);
+    Command RobotCheckCompletion = new RobotCheckCompletion(rbt);
+    Command RobotCheckTimer = new RobotCheckTimer(rbt);
+    Command RobotCompleteCleaning = new RobotCompleteCleaning(rbt);
+    Command RobotSetTimer = new RobotSetTimer(rbt);
+    Command RobotStart = new RobotStart(rbt);
+    Command RobotStop = new RobotStop(rbt);
 
     MenuState state=MenuState.MAINMENU;
 
@@ -118,6 +127,28 @@ public class Smartphone {
                     } else System.out.println("Invalid Input! Try again. \n");
                 }
             }
+            //Cleaning robot
+            else if (state==MenuState.CLEANINGROBOT){
+                System.out.println("Please select action for device or type in -r to return to main menu:\n" +
+                        "to set a timer type in -sti," +
+                        "\nto check timer type in -ct,\nto start the cleaning robot type in -sc,\nto check cleaning completion in % type in -ccc,\n" +
+                        "to check battery status type in -sta,\nto end cleaning type in -ec,\nto complete outstanding cleaning type in -c:\n");
+                Scanner myObj = new Scanner(System.in);
+                if (myObj.hasNextLine()) {
+                    input = myObj.nextLine();
+                    if (input.equals("-r")) state = MenuState.MAINMENU;
+                    else if (input.equals("-sti")) RobotSetTimer.execute();
+                    else if (input.equals("-ct")) RobotCheckTimer.execute();
+                    else if (input.equals("-sc")) RobotStart.execute();
+                    else if (input.equals("-ccc")) RobotCheckCompletion.execute();
+                    else if (input.equals("-sta")) RobotCheckBattery.execute();
+                    else if (input.equals("-ec")) RobotStop.execute();
+                    else if (input.equals("-c")) RobotCompleteCleaning.execute();
+                    else {
+                        System.out.println("Invalid Input! Try again. \n");
+                    }
+                } else System.out.println("Invalid Input! Try again. \n");
+        }
     }
     public static void main (String[] args){
         Smartphone S=new Smartphone();

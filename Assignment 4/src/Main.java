@@ -6,10 +6,12 @@
  * */
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) throws InterruptedException {
+
         Oven O=new Oven();
         O.SwitchOn();
         O.SetTimer(200);

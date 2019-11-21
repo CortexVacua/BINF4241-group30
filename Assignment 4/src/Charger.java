@@ -1,6 +1,5 @@
 public interface Charger {
-    public void ReturnToDock ();
-    public void LeaveDock ();
-    public int CheckBattery ();
-    public int CheckBatteryCharging();
+    public void CheckBatteryDischarging ();
+    public void CheckBatteryCharging();
+    public void CheckCleaningCompletion();
 }
