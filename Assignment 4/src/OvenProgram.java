@@ -4,6 +4,4 @@ public enum OvenProgram {
     BOTTOMHEAT,
     TOPHEAT,
     TOPANDBOTTOMHEAT;
-
-
 }
