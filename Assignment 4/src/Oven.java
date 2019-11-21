@@ -88,6 +88,7 @@ public class Oven implements BaseInterface, Switch, Temperature{
                 temperature = 0;
                 elapsedtime = 0;
                 starttime = 0;
+                program=null;
             }
             else System.out.println("The oven does not seem to be running any program you could stop.\n");
         }
