@@ -4,6 +4,8 @@ public class Smartphone {
     Oven oven=new Oven();
     Microwave micr= new Microwave();
     CleaningRobot rbt = new CleaningRobot();
+    Dishwasher dishwasher = new Dishwasher();
+    WashingMachine washingmachine = new WashingMachine();
 
     Command OvenSwitchOn=new OvenSwitchOn(oven);
     Command OvenSwitchOff=new OvenSwitchOff(oven);
@@ -29,6 +31,21 @@ public class Smartphone {
     Command RobotSetTimer = new RobotSetTimer(rbt);
     Command RobotStart = new RobotStart(rbt);
     Command RobotStop = new RobotStop(rbt);
+
+    Command DWSwitchOn = new CDWSwitchOn(dishwasher);
+    Command DWSwitchOff = new CDWSwitchOff(dishwasher);
+    Command DWSetProgram = new CDWSetProgram(dishwasher);
+    Command DWCheckTimer = new CDWCheckTimer(dishwasher);
+    Command DWStart = new CDWStart(dishwasher);
+    Command DWStop = new CDWStop(dishwasher);
+
+    Command WMSwitchOn = new CWMSwitchOn(washingmachine);
+    Command WMSwitchOff = new CWMSwitchOff(washingmachine);
+    Command WMSetProgram = new CWMSetProgram(washingmachine);
+    Command WMSetTemperature = new CWMSetTemperature(washingmachine);
+    Command WMStart = new CWMStart(washingmachine);
+    Command WMStop = new CWMStop(washingmachine);
+//    Command WMCheckTimer = new CWMCheckTimer(washingmachine);
 
     MenuState state=MenuState.MAINMENU;
 
@@ -116,7 +133,7 @@ public class Smartphone {
                     } else System.out.println("Invalid Input! Try again. \n");
                 }
                 else {
-                    System.out.println("Please select action for device or type in -r to return to main menu:\n" +
+                    System.out.println("Please select an action for the device or type in -r to return to main menu:\n" +
                             "to switch on the microwave type in -swon,\n");
                     Scanner myObj = new Scanner(System.in);
                     if (myObj.hasNextLine()) {
@@ -127,6 +144,43 @@ public class Smartphone {
                     } else System.out.println("Invalid Input! Try again. \n");
                 }
             }
+
+//            Dishwasher
+            else if (state == MenuState.DISHWASHER){
+                if (dishwasher.is_on() == true){
+                    System.out.println("Please select an action for the device or return to main menu:\n\n" +
+                            "to set a program type in -sp , \n" +
+                            "to check the timer type in -ct , \n" +
+                            "to start the dishwasher type in -sta , \n" +
+                            "to stop the dishwasher type in -sto , \n" +
+                            "to switch off the dishwasher type in -swoff , \n" +
+                            "to return to the main menu type in -r : \n");
+                    Scanner myObj = new Scanner(System.in);
+                    if (myObj.hasNextLine()) {
+                        input = myObj.nextLine();
+                        if (input.equals("-r")) state = MenuState.MAINMENU;
+                        else if (input.equals("-sp")) DWSetProgram.execute();
+                        else if (input.equals("-ct")) DWCheckTimer.execute();
+                        else if (input.equals("-sta")) DWStart.execute();
+                        else if (input.equals("-sto")) DWStop.execute();
+                        else if (input.equals("-swoff")) DWSwitchOff.execute();
+                        else System.out.println("Invalid Input! Try again. \n");
+                    } else System.out.println("Invalid Input! Try again. \n");
+                }
+                else {
+                    System.out.println("Please select an action for the device or return to main menu:\n\n" +
+                            "to switch on the dishwasher type in -swon , \n" +
+                            "to return to the main menu type in -r : \n");
+                    Scanner myObj = new Scanner(System.in);
+                    if (myObj.hasNextLine()) {
+                        input = myObj.nextLine();
+                        if (input.equals("-r")) state = MenuState.MAINMENU;
+                        else if (input.equals("-swon")) DWSwitchOn.execute();
+                        else System.out.println("Invalid Input! Try again. \n");
+                    } else System.out.println("Invalid Input! Try again. \n");
+                }
+            }
+
             //Cleaning robot
             else if (state==MenuState.CLEANINGROBOT){
                 System.out.println("Please select action for device or type in -r to return to main menu:\n" +
