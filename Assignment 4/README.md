@@ -1,6 +1,12 @@
+To run our program please execute the Smartphone class.
+
 The smartphone class utilizes the state pattern in order to serve up the submenu requested by the user.
 
-The class diagram can be found below. You can find a png file of the diagram called "class diagram.png" within the same folder in this repository.                                
+We used Threads for the time keeping, so we would be able to run all appliances at once as requested by the assignment.
+
+All appliances and their corresponding functions have an own command that is stored in Smartphone and executed through menu input. The menu input is self explanatory, since it gives the user directions on how to use it.
+
+The class diagram can be found below. You can also find a png file of the diagram called "class diagram.png" within the same folder in this repository.                                
 
 
 ```puml
