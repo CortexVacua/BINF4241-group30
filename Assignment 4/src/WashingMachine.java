@@ -23,6 +23,8 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
         temperature = 0;
     }
 
+    public boolean is_on() { return system_on; }
+
     @Override
     public void SwitchOn() {
         if (system_on==false) {
@@ -47,6 +49,7 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
             if(TemperatureInCelsius <= 0) System.out.print("Cannot wash clothes with frozen water.\n");
             else if (TemperatureInCelsius >= 100) System.out.print("Cannot wash clothes with boiling water.\n");
             else temperature = TemperatureInCelsius;
+            System.out.print("Temperature successfully set.\n");
         }
         else System.out.print("Washing machine is switched off. \n");
 
@@ -90,6 +93,9 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
                     washingmachine_thread = new Thread(washingmachine_mythread, "Washing machine");
                     washingmachine_thread.start();
                     starttime = System.currentTimeMillis();
+//                    IS RUNNING DOESNT FUNCTION
+//                    is_running = washingmachine_mythread.isRunning();
+//                    System.out.print(washingmachine_mythread.isRunning());
                     System.out.print("Washing machine is running.\n");
                 }
             }
@@ -101,7 +107,7 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
     @Override
     public void Stop() {
         if(system_on == true){
-            if(washingmachine_mythread.isRunning() == false) {
+            if(washingmachine_mythread == null) {
                 washingmachine_mythread = null;
                 washingmachine_thread = null;
                 washingmachine_state = null;
@@ -111,7 +117,7 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
                 elapsedtime = 0;
                 System.out.print("Washing machine was forced to stop washing. QwQ\n");
             }
-            else System.out.print("Washing machine is still running.");
+            else System.out.print("Washing machine is still running.\n");
         }
         else System.out.print("Washing machine is switched off.\n");
     }

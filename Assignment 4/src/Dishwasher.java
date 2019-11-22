@@ -21,6 +21,8 @@ public class Dishwasher implements BaseInterface,Switch {
         mixedState = new DishwasherMixedState(this);
     }
 
+    public boolean is_on() { return system_on; }
+
     @Override
     public void SwitchOn() {
         if (system_on==false) {
