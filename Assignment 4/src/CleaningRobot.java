@@ -1,13 +1,7 @@
 public class CleaningRobot implements BaseInterface, Charger {
     protected RobotThread Robot;
     protected Thread Robotrt;
-    protected boolean system_on = true;
     protected boolean inBaseCharging = true;
-    protected long cleaning_timer = 0;
-    private long charging_starttime = ((System.currentTimeMillis() / 1000) - 60) * 1000;
-    private long discharging_starttime = 0;
-    private long cleaning_elapsedtime = 0;
-    private long cleaning_starttime = 0;
 
     public CleaningRobot() {
          Robot = new RobotThread();
