@@ -1,3 +1,6 @@
+The smartphone class utilizes the state pattern in order to serve up the submenu requested by the user.
+
+The class diagram can be found below. You can find a png file of the diagram called "class diagram.png" within the same folder in this repository.                                
 
 
 ```puml
@@ -17,7 +20,6 @@ interface Charger <<Interface>> {
 
 interface Command <<Interface>> {
     {abstract} +execute()
-    {abstract} +setTimer()
 }
 
 interface Switch <<Interface>> {
@@ -150,10 +152,10 @@ class Smartphone {
     ~washingmachine: WashingMachine
     ~dishwasher: Dishwasher
     ~Oven...: Command
-    ~Microwave...: Commmand
+    ~Micr...: Commmand
     ~Robot...: Command
-    ~WashingMachine...: Command
-    ~Dishwasher...: Command
+    ~WM...: Command
+    ~DW...: Command
     ~state: MenuState
     ~input: String
     +menu()
@@ -186,3 +188,4 @@ Smartphone o-- Dishwasher
 Smartphone o-- Microwave
 Smartphone o-- Oven
 Smartphone o-- WashingMachine
+```
