@@ -62,8 +62,11 @@ public class Dishwasher implements BaseInterface,Switch {
                 System.out.print("Set timer is: " +timer / 1000 + " seconds.\n");
             }
             else{
-                elapsedtime = System.currentTimeMillis() - starttime;
-                System.out.print("Time remaining: " + (timer - elapsedtime) / 1000 + " seconds.\n");
+                if(dishwasher_mythread.isRunning()){
+                    elapsedtime = System.currentTimeMillis() - starttime;
+                    System.out.print("Time remaining: " + (timer - elapsedtime) / 1000 + " seconds.\n");
+                }
+                else System.out.println("Set timer is: " + timer / 1000 + "\n");
             }
         }
         else System.out.print("Dishwasher is switched off.\n");
