@@ -181,6 +181,8 @@ public class Smartphone {
                 }
             }
 
+//            Washing Machine
+
             //Cleaning robot
             else if (state==MenuState.CLEANINGROBOT){
                 System.out.println("Please select action for device or type in -r to return to main menu:\n" +
