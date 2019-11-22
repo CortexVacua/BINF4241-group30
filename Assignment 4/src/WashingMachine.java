@@ -77,8 +77,11 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
                 System.out.print("Set timer is: " +timer / 1000 + " seconds.\n");
             }
             else{
-                elapsedtime = System.currentTimeMillis() - starttime;
-                System.out.print("Time remaining: " + (timer - elapsedtime) / 1000 + " seconds.\n");
+                if (washingmachine_mythread.isRunning()){
+                    elapsedtime = System.currentTimeMillis() - starttime;
+                    System.out.print("Time remaining: " + (timer - elapsedtime) / 1000 + " seconds.\n");
+                }
+                else System.out.println("Set timer is: " + timer / 1000 + "\n");
             }
         }
         else System.out.print("Washing machine is switched off.\n");
@@ -95,9 +98,6 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
                     washingmachine_thread = new Thread(washingmachine_mythread, "Washing machine");
                     washingmachine_thread.start();
                     starttime = System.currentTimeMillis();
-//                    IS RUNNING DOESNT FUNCTION
-//                    is_running = washingmachine_mythread.isRunning();
-//                    System.out.print(washingmachine_mythread.isRunning());
                     System.out.print("Washing machine is running.\n");
                 }
             }
