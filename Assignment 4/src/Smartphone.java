@@ -182,6 +182,40 @@ public class Smartphone {
             }
 
 //            Washing Machine
+            else if (state == MenuState.WASHINGMACHINE){
+                if (washingmachine.is_on() == true) {
+                    System.out.println("Please select an action for the device or return to main menu:\n\n" +
+                            "to set a program type in -sp , \n" +
+                            "to set the temperature type in -st \n" +
+                            "to start the washing machine type in -sta , \n" +
+                            "to stop the washing machine type in -sto , \n" +
+                            "to switch off the washing machine type in -swoff , \n" +
+                            "to return to the main menu type in -r : \n");
+                    Scanner myObj = new Scanner(System.in);
+                    if (myObj.hasNextLine()) {
+                        input = myObj.nextLine();
+                        if (input.equals("-r")) state = MenuState.MAINMENU;
+                        else if (input.equals("-sp")) WMSetProgram.execute();
+                        else if (input.equals("-st")) WMSetTemperature.execute();
+                        else if (input.equals("-sta")) WMStart.execute();
+                        else if (input.equals("-sto")) WMStop.execute();
+                        else if (input.equals("-swoff")) WMSwitchOff.execute();
+                        else System.out.println("Invalid Input! Try again. \n");
+                    } else System.out.println("Invalid Input! Try again. \n");
+                }
+                else {
+                    System.out.println("Please select an action for the device or return to main menu:\n\n" +
+                            "to switch on the washing machine type in -swon , \n" +
+                            "to return to the main menu type in -r : \n");
+                    Scanner myObj = new Scanner(System.in);
+                    if (myObj.hasNextLine()) {
+                        input = myObj.nextLine();
+                        if (input.equals("-r")) state = MenuState.MAINMENU;
+                        else if (input.equals("-swon")) WMSwitchOn.execute();
+                        else System.out.println("Invalid Input! Try again. \n");
+                    } else System.out.println("Invalid Input! Try again. \n");
+                }
+            }
 
             //Cleaning robot
             else if (state==MenuState.CLEANINGROBOT){

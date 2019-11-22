@@ -48,8 +48,10 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
         if(system_on == true){
             if(TemperatureInCelsius <= 0) System.out.print("Cannot wash clothes with frozen water.\n");
             else if (TemperatureInCelsius >= 100) System.out.print("Cannot wash clothes with boiling water.\n");
-            else temperature = TemperatureInCelsius;
-            System.out.print("Temperature successfully set.\n");
+            else {
+                temperature = TemperatureInCelsius;
+                System.out.print("Temperature successfully set.\n");
+            }
         }
         else System.out.print("Washing machine is switched off. \n");
 
