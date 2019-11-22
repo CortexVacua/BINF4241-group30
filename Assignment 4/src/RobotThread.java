@@ -1,9 +1,4 @@
-/**
- * This class implements Runnable. That means that you need to
- * implement the run() method to describe the Thread behaviour.
- * Remember: runnable objects are not Threads, so using the
- * run() method on main process will not create a separate process.
- * */
+
 
 public class RobotThread implements Runnable, BaseInterface, Charger {
 
@@ -14,28 +9,18 @@ public class RobotThread implements Runnable, BaseInterface, Charger {
     protected int requested_cleaning_time;
     protected int remaining_cleaning_time;
 
-    /**
-     * Constructor for MyThread
-     * @param timeInMillis: time of life of the thread
-     * */
+
     public RobotThread(int timeInMillis){
         time = timeInMillis;
     }
 
-    /**
-     * Default Constructor. It has a default time of 10 seconds.
-     * */
+
     public RobotThread() {
         cleaning_state = CleaningState.NOT_CLEANING;
         charging_state = ChargingState.NEUTRAL;
         charge = 100;
     }
 
-    /**
-     * This method contains the behaviour of the thread. Its implementation
-     * is mandatory. In this case, the thread will sleep for the amount of time
-     * specified in the constructor and handle the state of the Thread.
-     * */
     @Override
     public void run() {
         try {
