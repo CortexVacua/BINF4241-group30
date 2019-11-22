@@ -90,6 +90,9 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
                     washingmachine_thread = new Thread(washingmachine_mythread, "Washing machine");
                     washingmachine_thread.start();
                     starttime = System.currentTimeMillis();
+//                    IS RUNNING DOESNT FUNCTION
+//                    is_running = washingmachine_mythread.isRunning();
+//                    System.out.print(washingmachine_mythread.isRunning());
                     System.out.print("Washing machine is running.\n");
                 }
             }
@@ -101,7 +104,7 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
     @Override
     public void Stop() {
         if(system_on == true){
-            if(washingmachine_mythread.isRunning() == false) {
+            if(washingmachine_mythread == null) {
                 washingmachine_mythread = null;
                 washingmachine_thread = null;
                 washingmachine_state = null;
@@ -111,7 +114,7 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
                 elapsedtime = 0;
                 System.out.print("Washing machine was forced to stop washing. QwQ\n");
             }
-            else System.out.print("Washing machine is still running.");
+            else System.out.print("Washing machine is still running.\n");
         }
         else System.out.print("Washing machine is switched off.\n");
     }

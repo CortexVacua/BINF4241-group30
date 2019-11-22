@@ -17,9 +17,7 @@ public class Main {
         O.SetTimer(200);
         O.SetTemperature(200);
         O.SetProgram(OvenProgram.GRILLED);
-        O.CheckTimer();
         O.Start();
-        O.CheckTimer();
 
         System.out.print("\n");
 
@@ -27,6 +25,20 @@ public class Main {
         DW.SwitchOn();
         DW.chooseProgram(DW.glassesState);
         DW.Start();
+
+        WashingMachine WM = new WashingMachine();
+        WM.SwitchOn();
+        WM.chooseProgram(WM.quickState);
+        WM.SetTemperature(40);
+        WM.Start();
+
         O.CheckTimer();
+        DW.CheckTimer();
+        WM.CheckTimer();
+
+        O.Stop();
+        DW.Stop();
+        WM.Stop();
+
     }
 }
