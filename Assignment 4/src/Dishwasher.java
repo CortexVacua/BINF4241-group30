@@ -92,13 +92,14 @@ public class Dishwasher implements BaseInterface,Switch {
     @Override
     public void Stop() {
         if(system_on == true){
+            dishwasher_thread.stop();
             dishwasher_mythread = null;
             dishwasher_thread = null;
             dishwasher_state = null;
             timer = 0;
             starttime = 0;
             elapsedtime = 0;
-            System.out.print("Dishwasher was forced to stop washing. QwQ\n");
+            System.out.print("Dishwasher was forced to stop washing and is reset now.\n");
         }
         else System.out.print("Dishwasher is switched off.\n");
     }

@@ -117,9 +117,9 @@ public class WashingMachine implements BaseInterface, Temperature, Switch {
                 timer = 0;
                 starttime = 0;
                 elapsedtime = 0;
-                System.out.print("Washing machine was forced to stop washing. QwQ\n");
+                System.out.print("Washing machine is reset now.\n");
             }
-            else System.out.print("Washing machine is still running.\n");
+            else System.out.print("Can not stop washing machine while it is still running.\n");
         }
         else System.out.print("Washing machine is switched off.\n");
     }

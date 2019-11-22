@@ -82,6 +82,7 @@ public class Oven implements BaseInterface, Switch, Temperature{
     public void Stop() {
         if (system_on==true) {
             if(Ovenmt!=null && Ovenmt.isRunning()) {
+                Ovenrt.stop();
                 Ovenmt = null;
                 Ovenrt = null;
                 timer = 0;
@@ -89,7 +90,7 @@ public class Oven implements BaseInterface, Switch, Temperature{
                 elapsedtime = 0;
                 starttime = 0;
                 program=null;
-                System.out.println("Oven has been stopped.");
+                System.out.println("Oven has been stopped and reset.");
             }
             else System.out.println("The oven does not seem to be running any program you could stop.\n");
         }
