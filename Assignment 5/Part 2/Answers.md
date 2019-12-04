@@ -30,7 +30,7 @@ For the fix we had to change the third line of the method to return true, which 
 win by columns or a win by rows.
 
 To fix hasWinDiagonal we had to fix the method completesDiagonal() by changing its 5th line from "return (board.getMark(0, 0) == center && center == board.getMark(1, 2))"
-to return (board.getMark(0, 0) == center && center == board.getMark(2, 2)). The problem here was that it was checking the wrong
+to "return (board.getMark(0, 0) == center && center == board.getMark(2, 2))". The problem here was that it was checking the wrong
 coordinates for a diagonal win. The coordinates (1,2) do not correspond to a diagonal field, while (2,2) represents the diagonal
 field that gets you a win when paired with (0,0) and (1.1).
 
