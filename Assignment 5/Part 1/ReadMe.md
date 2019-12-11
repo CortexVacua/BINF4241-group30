@@ -1,6 +1,8 @@
-To run the game please run mainClass.
+sum stuff needed to be tested:
 
-Our variant sends players that land on an occupied field back to the first field. 
-It also sends a player backwards if he overshoots the last square, meaning that he must reach the last square by rolling the die,
-so that he moves directly into it. If he has steps left when reaching the last square he moves backwards the remaining steps.
+game
+gameboard
+printer
 
+deleted sum code that was not needed in the main game (protected int points to in suqare)
+in gameboard public Queue<Player> getPlayers() {return list_of_players;}

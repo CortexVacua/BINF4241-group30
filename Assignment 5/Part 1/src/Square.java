@@ -3,7 +3,6 @@ public class Square {
     //    occupied = 0 --> is free, occupied = 1 --> is occupied
     protected int occupied = 0;
     protected int square_number;
-    protected int points_to;
 
     public Square(int number){
         this.square_number = number;

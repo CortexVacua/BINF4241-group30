@@ -58,10 +58,6 @@ public class Gameboard {
         }
     }
 
-    public Queue<Player> getPlayers() {
-        return list_of_players;
-    }
-
     public static int get_board_size() {
         return board_size;
     }
