@@ -23,5 +23,4 @@ class SquareTest {
         assertEquals(0,test_afterOccupied);
     }
 
-
 }
