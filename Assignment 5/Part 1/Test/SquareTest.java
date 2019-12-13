@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SquareTest {
 
+//  Tests if you can get the correct number from a square
     @Test
     public void get_square_number_test() {
         Square test_square = new Square(5);
@@ -10,6 +11,7 @@ class SquareTest {
         assertEquals(5,test_number);
     }
 
+//  Tests if the square can be properly occupied/unoccupied
     @Test
     public void occupation_test() {
         Square test_square = new Square(5);

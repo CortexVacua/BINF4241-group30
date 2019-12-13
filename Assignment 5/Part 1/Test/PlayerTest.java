@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 
+//  Tests if it's possible to get the player number
     @Test
     public void test_get_player_number() {
         Player test_player = new Player("Jotaro",3);
@@ -10,6 +11,7 @@ class PlayerTest {
         assertEquals(3,test_number);
     }
 
+//  Tests if you can get the player's name
     @Test
     public void test_get_player_name() {
         Player test_player = new Player("Josuke",4);
@@ -17,6 +19,7 @@ class PlayerTest {
         assertEquals("Josuke",test_name);
     }
 
+//  Tests if you can replace the player in another square
     @Test
     void test_change_number() {
         Player test_player = new Player("Jolyne",6);

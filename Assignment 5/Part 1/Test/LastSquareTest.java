@@ -4,8 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LastSquareTest {
 
+//  Tests if the last square is the last square in gameboard.
     @Test
-    public void first_square_test() {
+    public void last_square_test() {
 
         Gameboard test_board = new Gameboard();
         test_board.board_size = 10;

@@ -14,11 +14,11 @@ public class Gameboard {
         // initializes the board as a list
         while (board_size <= 5) {
             System.out.print("Enter the board size (greater than 5): ");
-            board_size = input.nextInt();
-//            Scanner myObj = new Scanner(System.in);
-//            if (myObj.hasNextInt()) {
-//                board_size = myObj.nextInt();
-//            }
+//            board_size = input.nextInt();
+            Scanner myObj = new Scanner(System.in);
+            if (myObj.hasNextInt()) {
+                board_size = myObj.nextInt();
+            }
         }
         list_of_squares = new Square[board_size];
         // adds first and last square
@@ -52,11 +52,11 @@ public class Gameboard {
         //initialize players and add them into a player list.
         while (number_of_players < 2 || number_of_players > 4) {
             System.out.print("Enter the number of players (between 2 and 4): ");
-            number_of_players = input.nextInt();
-//            Scanner obj = new Scanner(System.in);
-//            if (obj.hasNextInt()) {
-//                number_of_players = obj.nextInt();
-//            }
+//            number_of_players = input.nextInt();
+            Scanner obj = new Scanner(System.in);
+            if (obj.hasNextInt()) {
+                number_of_players = obj.nextInt();
+            }
         }
         for (int i = 1; i <= number_of_players; i++) {
             System.out.print("Enter the name of Player " + i + ": ");

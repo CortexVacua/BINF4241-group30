@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FirstSquareTest {
 
+//   Tests if the first square is actually the first square.
     @Test
     public void first_square_test() {
         FirstSquare test_square = new FirstSquare();

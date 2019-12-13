@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DieTest {
 
+//  Tests if the dice does roll numbers between 1 and 6
     @Test
     public void roll_die_test() {
         Die test_die = new Die();
