@@ -18,3 +18,103 @@ The expected outputs are the new game situation after each turn that includes th
 
 ```puml
 
+class Game {
+    #scanner: Scanner
+    #PlayerQueue: LinkedList
+    #CurrentPlayer: Player
+    #DiscardPile: LinkedList
+    #DrawPile: LinkedList
+    #DeckOfCards: LinkedList
+    #clockwise: Boolean
+    #number_of_moves: Integer
+    #GameOver: Boolean
+    +shuffle(list: List): LinkedList
+    +getDrawPileCard(): Card
+    +getDiscardPile(): LinkedList
+    +addToDiscardPile(card: Card)
+    +getPlayerQueue(): LinkedList
+    +setCurrentPlayer(player: Player)
+    +getCurrentPlayer(): Player
+    +isLegalMove(player: Player, card: Card): Boolean
+    +getClockwise(): Boolean
+    +getNumberOfMoves(): Integer
+    +isGameOver(): Boolean
+}
+
+interface Card <<Interface>> {
+    {abstract} +getCard(): Card
+}
+
+class Main {
+    ~game: Game
+    {static} +main(String args[])
+}
+
+class GameInitializer {
+    +initialize(list_of_players: LinkedList): Game
+}
+
+class Player {
+#number_of_cards: Integer
+#Cards: LinkedList
++addCard(card: Card)
++removeCard(card: Card)
++getCards(): LinkedList
++playRandomLegalCard()
++getNumberOfCards(): Integer
++playCard(card: Card)
++playCardSayingUNO(card: Card)
++getNumberOfLegalMoves(): Integer
+}
+
+class NumberCard {
+#number: Number
+#Color: Color
++getCard(): NumberCard
+}
+
+class WildCard {
+#Color: Color
++getCard(): WildCard
+}
+
+class ReverseCard {
+#Color: Color
++getCard(): ReverseCard
+}
+
+class SkipCard {
+#Color: Color
++getCard(): SkipCard
+}
+
+class WildDrawFourCard {
+#Color: Color
++getCard(): WildDrawFourCard
+}
+
+class Printer {
++printGameState(players: LinkedList, discardPile: LinkedList)
+}
+
+
+
+Card <|.. NumberCard
+Card <|.. WildCard
+Card <|.. ReverseCard
+Card <|.. SkipCard
+Card <|.. WildDrawFourCard
+Main o-- Game
+Game o-- Player
+Game o-- Printer
+Player o-- Card
+Game o-- NumberCard
+Game o-- WildCard
+Game o-- ReverseCard
+Game o-- SkipCard
+Game o-- WildDrawFourCard
+GameInitializer o-- Game
+```
+
+You can find a png file of the class diagram called "Class diagram.png" within the same folder in this repository.
+
